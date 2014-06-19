@@ -1,0 +1,116 @@
+/*
+  Created by Dariusz on 2014-06-08
+*/
+@import "global";
+
+/*variables:*/
+@transitionTime: 0.3s;
+@iconColor: #777;
+@selectedInputColor: #559bb4;
+
+.newsButton(@size: 32px){
+  width: @size; height: @size;
+  transition: all @transitionTime ease-out !important;
+  fill: @iconColor;
+  & > svg{
+    width: @size; height: @size;
+  }
+}
+
+a.newsEditButton {
+  .newsButton;
+  float: right;
+}
+a.newsEditButton:hover{
+  fill: #111;
+}
+
+a.newsModifyModFinishButton {
+  .newsButton;
+  position: relative; top:0; left:0;
+}
+a.newsModifyModFinishButton:hover{
+  fill: #81c977;
+}
+
+@toolbox-icons-padding: 4px;
+.newsToolboxButton{
+  .newsButton(16px);
+  padding: @toolbox-icons-padding;
+  display: inline-block;
+  float: left;
+  fill: #fff;
+  &:hover{ background-color: @selectedInputColor;}
+}
+.newsToolboxButtonLastLeft{
+  .border-radius-lastLeft(4px);
+}
+.newsToolboxButtonLastRight{
+  .border-radius-lastRight(4px);
+}
+.newsModifyToolbox {
+  .border-radius(4px);
+  background-color: lighten(@selectedInputColor,30%);
+  float: right;
+  display: inline-block;
+  width: 144px;
+}
+.newsModifyToolboxDescription {
+  display: inline;
+  color: @selectedInputColor;
+  text-transform: uppercase;
+  float:right;
+  position: relative; top:0.4em; left: -1.5em;
+  font-size: 9pt;
+}
+/*News Article modify*/
+.newsModifyTitleInput[type="text"] {
+  /*h3*/
+  font-size:1.5em;line-height:1;margin-bottom:1em;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  /*fix*/
+  height: 38px; margin-top: -4px !important;
+  padding: 0 !important;
+  /*clear*/
+  background-color: transparent;
+  border: 0;
+  display: block;
+  overflow: visible;
+  outline: 0; /*Disable onFocus blue border*/
+  width: 100%;
+}
+.newsModifyContentParagraph {
+  /*p*/
+  color: #444;
+  /*fix*/
+  margin-top: -2px !important; margin-bottom:0.53em !important;
+  /*clear*/
+  background-color: transparent;
+  border: 0; padding: 0 !important; margin: 0;
+  /*overflow: hidden; /*Hide scrollbars*/
+  resize: none; /*Disable resize corner*/
+  outline: 0; /*Disable onFocus blue border*/
+  width: 100%;
+}
+div.newsModifyHidden {
+  display: none;
+  margin-bottom: -11px;
+  position:relative; top: 0px;
+}
+/* Positioning of modify-button*/
+.newsModifyHidden > form {
+  margin-bottom: -11px;
+  float: right;
+  display: inline;
+  clear: none;
+  /*DK: This hack is needed for properly displaying*/
+  position: relative; top:0; left:-32px;
+  width: 0px; height: 0px;
+  overflow: visible;
+}
+/*dynamically added by jQuery*/
+.newsModifySelectedInput {
+  color: @selectedInputColor !important;
+  transition: all @transitionTime ease-out;
+
+}

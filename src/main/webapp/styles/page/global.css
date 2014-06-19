@@ -1,0 +1,16 @@
+/*
+  Created by Dariusz on 2014-06-08.
+*/
+body {
+  font-size: 1.2em !important;
+  /*DK Scale-up font for a little*/
+}
+p {
+  color: #444;
+  line-height: 1.5em;
+}
+.ui-datascroller-content,
+.ui-widget-content {
+  border: 0;
+}
+

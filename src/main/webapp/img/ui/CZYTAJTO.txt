@@ -1,0 +1,3 @@
+Przygotowanie plików svg:
+1. Usunięcie atrybutów fill z wszystkich elementów - umożliwia zarządzanie kolorem poprzez styl css.
+2. Usuniecie atrybutów width/height w tagu svg - umożliwia zmiany rozmiaru grafiki.

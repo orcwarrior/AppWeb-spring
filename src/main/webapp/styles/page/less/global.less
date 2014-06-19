@@ -1,0 +1,35 @@
+/*
+  Created by Dariusz on 2014-06-08.
+*/
+body {
+  font-size: 1.2em !important; /*DK Scale-up font for a little*/
+}
+p {
+  color: #444;
+  line-height: 1.5em;
+}
+.ui-datascroller-content, .ui-widget-content{
+  border: 0;
+}
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.border-radius-lastLeft(@radius) {
+  -webkit-border-bottom-left-radius: @radius;
+  -moz-border-bottom-left-radius: @radius;
+  border-bottom-left-radius: @radius;
+  -webkit-border-top-left-radius: @radius;
+  -moz-border-top-left-radius: @radius;
+  border-bottom-top-radius: @radius;
+}
+.border-radius-lastRight(@radius) {
+  -webkit-border-bottom-right-radius: @radius;
+  -moz-border-bottom-right-radius: @radius;
+  border-bottom-right-radius: @radius;
+  -webkit-border-top-right-radius: @radius;
+  -moz-border-top-right-radius: @radius;
+  border-bottom-top-radius: @radius;
+}
