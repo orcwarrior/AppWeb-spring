@@ -3,10 +3,6 @@
 */
 @import "global";
 
-/*variables:*/
-@transitionTime: 0.3s;
-@iconColor: #777;
-@selectedInputColor: #559bb4;
 
 .newsButton(@size: 32px){
   width: @size; height: @size;
@@ -27,20 +23,21 @@ a.newsEditButton:hover{
 
 a.newsModifyModFinishButton {
   .newsButton;
-  position: relative; top:0; left:0;
+  position: relative; top:0; right:0;
+  float:right;
+  display:none;
 }
 a.newsModifyModFinishButton:hover{
   fill: #81c977;
 }
 
-@toolbox-icons-padding: 4px;
 .newsToolboxButton{
-  .newsButton(16px);
+  .newsButton(15px);
   padding: @toolbox-icons-padding;
   display: inline-block;
   float: left;
   fill: #fff;
-  &:hover{ background-color: @selectedInputColor;}
+  &:hover{ background-color: @mainThemeColor;}
 }
 .newsToolboxButtonLastLeft{
   .border-radius-lastLeft(4px);
@@ -50,14 +47,14 @@ a.newsModifyModFinishButton:hover{
 }
 .newsModifyToolbox {
   .border-radius(4px);
-  background-color: lighten(@selectedInputColor,30%);
+  background-color: lighten(@mainThemeColor,30%);
   float: right;
   display: inline-block;
   width: 144px;
 }
 .newsModifyToolboxDescription {
   display: inline;
-  color: @selectedInputColor;
+  color: @mainThemeColor;
   text-transform: uppercase;
   float:right;
   position: relative; top:0.4em; left: -1.5em;
@@ -110,7 +107,23 @@ div.newsModifyHidden {
 }
 /*dynamically added by jQuery*/
 .newsModifySelectedInput {
-  color: @selectedInputColor !important;
+  color: @mainThemeColor !important;
   transition: all @transitionTime ease-out;
 
 }
+
+// STD News:
+.newsContentAndEditorWrapper{
+  position: relative; top: 1px;
+}
+.newsContent {
+  position: absolute;
+  top: 5px;
+}
+.newsContentEditor{
+  .newsContent;
+  top: -15px;
+  visibility: collapse;
+}
+
+

@@ -25,6 +25,7 @@
 	<context:component-scan base-package="org.springframework.samples.webflow"/>
 
 	<!-- Enables the Spring MVC @Controller programming model -->
+    <mvc:annotation-driven />
     <context:annotation-config />
     <tx:annotation-driven />
 
@@ -58,7 +59,7 @@
 		<property name="suffix" value=".xhtml" />
 	</bean>
 
-	<!--
+    <!--
 		Dispatches requests mapped to flows to FlowHandler implementations
 	-->
 	<bean class="org.springframework.faces.webflow.JsfFlowHandlerAdapter">

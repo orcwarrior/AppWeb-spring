@@ -47,22 +47,25 @@
 	<logger name="org.primefaces">
 		<level value="debug" />
 	</logger>
+    <logger name="org.primefaces.component.editor">
+        <level value="trace" />
+    </logger>
     <!-- DK: Some hibernate debug-->
     <logger name="org.hibernate.sql">
         <level value="debug" />
     </logger>
     <logger name="org.hibernate.type">
-        <level value="trace" />
+        <level value="debug" />
     </logger>
     <!-- DK: DB Driver -->
     <logger name="com.mysql.jdbc.Driver">
         <level value="trace" />
     </logger>
     <logger name="org.lesscss">
-        <level value="trace"/>
+        <level value="debug"/>
     </logger>
     <logger name="org.lesscss.mojo">
-        <level value="trace"/>
+        <level value="debug"/>
     </logger>
 
 	<!-- Root Logger -->

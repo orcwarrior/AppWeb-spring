@@ -1,0 +1,126 @@
+/*
+  Created by Dariusz on 2014-06-08
+*/
+@import "global.less";
+
+// variables:
+@enabledButtonFillColor: ffffff;
+@disabledButtonFillColor: aaaaaa;
+@nonFocusedButtonLightness: 20%;
+@toolbarWidth: 204px;
+.ui-editor {
+  background-color: transparent !important;
+}
+.ui-editor-toolbar {
+  background: none !important;
+  background-color: transparent !important;
+  height: 34px !important;
+}
+.ui-editor-group {
+  float: right;
+  width: @toolbarWidth !important;
+  background-color: transparent !important;
+}
+
+.uiButton(@size: 32px){
+  width: @size; height: @size;
+  transition: all @transitionTime ease-out !important;
+  fill: @iconColor;
+  & > svg{
+    width: @size; height: @size;
+  }
+}
+.ui-editor-button{
+  .uiButton(24px);
+  .border-radius(1px) !important;
+
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  padding: @toolbox-icons-padding !important;
+  margin: 0 1px 0 1px !important;
+  display: block;
+  float: left;
+  fill: #fff;
+  background-color: lighten(@mainThemeColor,@nonFocusedButtonLightness) !important;
+  &:hover{ background-color: @mainThemeColor !important;}
+}
+
+.ui-editor-button:first-child{
+  .border-radius-lastLeft(4px);
+}
+.ui-editor-button:last-child{
+  .border-radius-lastRight(4px);
+}
+
+// Concrete buttons:
+// (thanks god for attribute selector :) )
+
+.ui-editor-button[title="Bold"]{
+  background: url('/app/SVG:bold.svg?size=18&fill=@{enabledButtonFillColor}') !important;
+  .ui-editor-button;
+}
+.ui-editor-button[title="Italic"]{
+  background: url('/app/SVG:italic.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  .ui-editor-button;
+}
+.ui-editor-button[title="Underline"]{
+  background: url('/app/SVG:underline.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  .ui-editor-button;
+}
+.ui-editor-button[title="Insert Hyperlink"]{
+  background: url('/app/SVG:link.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  .ui-editor-button;
+}
+.ui-editor-button[title="Remove Hyperlink"]{
+  background: url('/app/SVG:unlink.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  .ui-editor-button;
+}
+.ui-editor-button[title="Insert Image"]{
+  background: url('/app/SVG:image.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  .ui-editor-button;
+}
+
+// Disabled buttons:
+
+.ui-editor-disabled {
+  opacity: 1 !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: lighten(@mainThemeColor,@nonFocusedButtonLightness) !important;
+  &:hover{ background-color: lighten(@mainThemeColor,@nonFocusedButtonLightness) !important;}
+}
+.ui-editor-disabled[title="Bold"]{
+   background: url('/app/SVG:bold.svg?size=18&fill=@{disabledButtonFillColor}') !important;
+  .ui-editor-disabled;
+}
+.ui-editor-disabled[title="Italic"]{
+  background: url('/app/SVG:italic.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  .ui-editor-disabled;
+}
+.ui-editor-disabled[title="Underline"]{
+  background: url('/app/SVG:underline.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  .ui-editor-disabled;
+}
+.ui-editor-disabled[title="Insert Hyperlink"]{
+  background: url('/app/SVG:link.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  .ui-editor-disabled;
+}
+.ui-editor-disabled[title="Remove Hyperlink"]{
+  background: url('/app/SVG:unlink.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  .ui-editor-disabled;
+}
+.ui-editor-disabled[title="Insert Image"]{
+  background: url('/app/SVG:image.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  .ui-editor-disabled;
+}
+
+// Dialogs
+
+.ui-editor-popup, .ui-editor-prompt {
+  .border-radius(1px) !important;
+  margin-top: 10px; margin-left: -169px;
+  width: @toolbarWidth - 9px;
+  border: none !important;
+  background-color: lighten(@mainThemeColor,@nonFocusedButtonLightness) !important;
+}
+

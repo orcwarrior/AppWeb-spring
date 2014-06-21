@@ -1,0 +1,14 @@
+Problemy
+---
+* Problemy z polskimi znakami w bazie danych, bład znajdował się zarówno po stronie bazy mySQL,
+  i hibernate'a (również driver dla mySQL w InteliJ wymagał zmian w ustawieniach)
+
+* Błędne inicjowanie komponentu p:editor, rozwiązane przez usunięcie linkowania własnego jQuery
+  Pomimo poprawki leniwa inicjalizacja edytora sypała błędy na konsole js, obecnie p:editor inicjalizowany
+  odrazu i ukryty.
+
+* Problem ze zmiana rozmiaru, i atrybutu fill dla plików svg załączonych przez css jako background-image,
+  jako rozwiązanie pomysł na kontroler który odpowiednio będzie przetwarzał zapytania o pliki svg.
+
+* Problem z działaniem kontrolerów springa, wkońcu po ich uruchomieniu problem z wyświetlaniem flow: news
+  UP: Po zmianie nazwy folderu (a wiec i flow) z news na articles... działa o_O
