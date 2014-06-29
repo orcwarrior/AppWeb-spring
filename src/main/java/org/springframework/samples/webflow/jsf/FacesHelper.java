@@ -1,8 +1,8 @@
 package org.springframework.samples.webflow.jsf;
 
-import javax.faces.context.FacesContext;
-
 import org.springframework.stereotype.Component;
+
+import javax.faces.context.FacesContext;
 
 @Component
 public class FacesHelper {

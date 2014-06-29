@@ -1,10 +1,10 @@
 package org.springframework.samples.webflow.ajax;
 
-import java.io.Serializable;
-
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.util.StringUtils;
 import org.springframework.webflow.execution.RequestContext;
+
+import java.io.Serializable;
 
 public class UserBean implements Serializable {
 

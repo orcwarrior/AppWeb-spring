@@ -1,12 +1,11 @@
 package org.springframework.samples.webflow.validation;
 
-import java.io.Serializable;
-import java.util.Date;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import java.io.Serializable;
+import java.util.Date;
 
 public class Account implements Serializable {
 

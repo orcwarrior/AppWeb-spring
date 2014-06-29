@@ -1,8 +1,8 @@
 package org.springframework.samples.webflow.poller;
 
-import java.util.Date;
-
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 @Component
 public class CurrentTimeBean {

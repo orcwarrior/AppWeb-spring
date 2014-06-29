@@ -10,7 +10,9 @@
     <ui:define name="title">News page</ui:define>
 
     <ui:define name="content">
-
+    <script type="text/javascript">
+        initializeArticleEditor();
+    </script>
         <!--DK: Temporary removed-->
         <ui:remove>
             <h:panelGroup layout="block" styleClass="error" rendered="#{facesHelper.error}">
@@ -23,7 +25,8 @@
                 <div id="news_#{a.id}">
                     <!--button modify-->
                     <a class="newsEditButton"
-                       href="javascript:editArticle(#{a.id});  PrimeFaces.widgets['articleEditor#{a.id}'].refresh(PrimeFaces.widgets['articleEditor#{a.id}'])">
+                       href="javascript:editArticle(#{a.id});  "
+                       update="articleContentEditor#{a.id}">
                         <ui:include src="../../../img/ui/cog.svg"/>
                     </a>
                     <h:form id="articlePost#{a.id}">
@@ -47,9 +50,9 @@
                         <p class="newsContent">#{a.content}</p>
 
                         <h:form id="articleContentEditorForm#{a.id}" class="newsContentEditor">
-                            <p:editor id="articleContentEditor#{a.id}" widgetVar="articleEditor#{a.id}"
+                            <p:editor id="articleContentEditor#{a.id}" widgetVar="articleEditorWidget#{a.id}"
                                       controls="bold italic underline link unlink image"
-                                      value="content here..."/>
+                                      value="#{a.content}"></p:editor>
                         </h:form>
                     </div>
                 </div>

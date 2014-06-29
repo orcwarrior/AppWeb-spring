@@ -1,14 +1,13 @@
 package org.springframework.samples.webflow.autocomplete;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.springframework.util.StringUtils;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-
-import org.springframework.util.StringUtils;
+import java.util.ArrayList;
+import java.util.List;
 
 @FacesConverter(value="personConverter")
 public class PersonConverter implements Converter {

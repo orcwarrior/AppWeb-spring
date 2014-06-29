@@ -1,9 +1,9 @@
 package org.springframework.samples.webflow.modal;
 
+import org.springframework.stereotype.Component;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-
-import org.springframework.stereotype.Component;
 
 @Component
 public class ModalAction {

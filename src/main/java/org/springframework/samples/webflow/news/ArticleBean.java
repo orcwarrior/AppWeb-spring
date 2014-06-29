@@ -1,19 +1,16 @@
 package org.springframework.samples.webflow.news;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import java.io.Serializable;
+import java.util.List;
+import java.util.logging.Logger;
 
 /**
  * Created by Dariusz on 2014-05-20.

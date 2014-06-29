@@ -1,11 +1,11 @@
 package org.springframework.samples.webflow.validation;
 
-import java.io.Serializable;
-import java.util.Date;
-
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
 import org.springframework.binding.validation.ValidationContext;
+
+import java.io.Serializable;
+import java.util.Date;
 
 public class Reservation implements Serializable {
 
