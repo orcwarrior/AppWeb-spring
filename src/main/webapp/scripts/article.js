@@ -9,6 +9,7 @@ function editArticle(articleID)
 
     jQuery("#news_"+articleID+" > h3").attr("contenteditable","true");
     jQuery("#news_"+articleID+" > .newsContentAndEditorWrapper > .newsContentEditor").css("visibility","visible");
+    jQuery("#news_"+articleID+" > .newsContentAndEditorWrapper > .newsContent").hide();
 
     // swap buttons (hide edit, show accept):
     jQuery("#news_"+articleID+" > .newsEditButton").hide();
@@ -46,8 +47,9 @@ function finishArticleEditing(articleID)
     jQuery("#news_" +articleID+ " > h3").text(_title);
     jQuery("#news_" +articleID+ " > p").html(newline2br(_content));
 
-    jQuery("#news_"+articleID).show();
-    jQuery("#newsModify_"+articleID).hide();
+    jQuery("#news_"+articleID+" > h3").attr("contenteditable","false");
+    jQuery("#news_"+articleID+" > .newsContentAndEditorWrapper > .newsContent").show();
+    jQuery("#news_"+articleID+" > .newsContentAndEditorWrapper > .newsContentEditor").css("visibility","collapsed");
 
     // Update values in hiddenInputs (managedBean grabs value from them)
     // (JSF messup things with auto-naming forms ids/names but ends of them are as we defined)
@@ -70,6 +72,13 @@ function adaptNewsContentAndEditorSizes(articleID)
 
     newsContentAndEditorWrapper.height(maxHeight);
 }
+
+function initializeArticleEditor()
+{
+    jQuery.cleditor.defaultOptions.bodyStyle = "";
+    jQuery.cleditor.defaultOptions.docCSSFile = "/app/resources/styles/page/article-editor-iframe.css";
+}
+
 
 // Event: On Document ready:
 jQuery(document).ready( function() {

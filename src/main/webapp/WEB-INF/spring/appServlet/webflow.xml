@@ -13,6 +13,9 @@
 			<listener ref="facesContextListener"/>
 			<listener ref="securityListener"/>
 		</flow-execution-listeners>
+        <flow-execution-attributes>
+            <redirect-in-same-state value="false"/>
+        </flow-execution-attributes>
 	</flow-executor>
 
 	<!-- The registry of executable flow definitions -->
@@ -29,5 +32,6 @@
 
 	<!-- A listener to apply Spring Security authorities -->
 	<beans:bean id="securityListener" class="org.springframework.webflow.security.SecurityFlowExecutionListener" />
+
 
 </beans:beans>

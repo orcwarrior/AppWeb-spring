@@ -12,3 +12,9 @@ Problemy
 
 * Problem z działaniem kontrolerów springa, wkońcu po ich uruchomieniu problem z wyświetlaniem flow: news
   UP: Po zmianie nazwy folderu (a wiec i flow) z news na articles... działa o_O
+
+* Problem z modyfikacją podglądu komponentu p:editor zbudowanego na iframe, p:editor juz nie obsluguje lazy-inita
+  natomiast jeśli jest już wygenerowany, zmiana konfiguracji widgeta nie pomagała, jako że iframe nie należy do
+  mocno dynamicznych komponentów HTML, jako rozwiazanie: sprawdzenie co siedzi w komponencie edytora, okazuje się
+  że http://premiumsoftware.net/cleditor/ wystarczy zmienić dynamicznie konfiguracje konstruktora edytora
+  (jQuery.cleditor.defaultOptions)

@@ -169,7 +169,7 @@ div.newsModifyHidden {
 .newsContentEditor {
   position: absolute;
   top: 5px;
-  top: -15px;
+  top: -29px;
   visibility: collapse;
 }
 
