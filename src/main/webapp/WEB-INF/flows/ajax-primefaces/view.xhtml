@@ -22,7 +22,7 @@
             <fieldset>
                 <div id="news_#{a.id}">
                     <!--button modify-->
-                    <a class="newsEditButton"
+                    <a class="article-edit-button"
                        href="javascript:editArticle(#{a.id});  PrimeFaces.widgets['articleEditor#{a.id}'].refresh(PrimeFaces.widgets['articleEditor#{a.id}'])">
                         <ui:include src="../../../img/ui/cog.svg"/>
                     </a>
@@ -43,8 +43,8 @@
 
                     <h3 class="newsTitle alt">#{a.title}</h3>
 
-                    <div class="newsContentAndEditorWrapper">
-                        <p class="newsContent">#{a.content}</p>
+                    <div class="article-contentAndEditor-wrapper">
+                        <p class="article-content-p">#{a.content}</p>
 
                         <h:form id="articleContentEditorForm#{a.id}" class="newsContentEditor">
                             <p:editor id="articleContentEditor#{a.id}" widgetVar="articleEditor#{a.id}"

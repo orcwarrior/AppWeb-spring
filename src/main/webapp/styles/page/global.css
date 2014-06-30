@@ -14,4 +14,8 @@ p {
 .ui-widget-content {
   border: 0;
 }
+.article-focusedEdit-span {
+  color: #427f94 !important;
+  transition: all 0.3s ease-out;
+}
 

@@ -1,6 +1,26 @@
 /*
   Created by Dariusz on 2014-06-08
 */
+/*
+  Created by Dariusz on 2014-06-08.
+*/
+/*variables:*/
+body {
+  font-size: 1.2em !important;
+  /*DK Scale-up font for a little*/
+}
+p {
+  color: #444;
+  line-height: 1.5em;
+}
+.ui-datascroller-content,
+.ui-widget-content {
+  border: 0;
+}
+.article-focusedEdit-span {
+  color: #427f94 !important;
+  transition: all 0.3s ease-out;
+}
 html,
 body,
 div,
@@ -56,13 +76,22 @@ td {
 body {
   line-height: 1.5;
 }
+body,
+html {
+  width: 100%;
+}
 body {
   cursor: text;
   width: auto;
-  font-size: 21px;
+  font-size: 21px !important;
   color: #444;
-  line-height: 1.5em;
+  line-height: 1.5em !important;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  margin: 0 0 1.5em;
+  margin: 0 0 0em;
+  overflow: hidden;
+}
+body:focus {
+  color: #427f94 !important;
+  transition: all 0.3s ease-out;
 }
 

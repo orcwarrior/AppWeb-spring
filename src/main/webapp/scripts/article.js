@@ -2,87 +2,94 @@
  * Created by Dariusz on 2014-06-03.
  */
 // CONSTANTS
-function editArticle(articleID)
-{
-    var title = jQuery("#news_"+articleID+" > h3").text();
-    var content = jQuery("#news_"+articleID+" > p").text();
+var ART_ID_PREFIX = "#article_";
+var ARTICLE_STATE_READ = 0, ARTICLE_STATE_EDIT = 1;
 
-    jQuery("#news_"+articleID+" > h3").attr("contenteditable","true");
-    jQuery("#news_"+articleID+" > .newsContentAndEditorWrapper > .newsContentEditor").css("visibility","visible");
-    jQuery("#news_"+articleID+" > .newsContentAndEditorWrapper > .newsContent").hide();
-
-    // swap buttons (hide edit, show accept):
-    jQuery("#news_"+articleID+" > .newsEditButton").hide();
-    jQuery("#news_"+articleID+" > form > .newsModifyModFinishButton").show();
-
-    createFocusEvents();
+function editArticle(articleID) {
+    _setupEditorContent(articleID);
+    _changeArticleState(articleID, ARTICLE_STATE_EDIT);
 }
-function createFocusEvents()
-{
-    jQuery('.newsModifyTitleInput, .newsModifyContentParagraph').focusout(function() {
-        jQuery(this).removeClass('newsModifySelectedInput');
-    });
-    jQuery('.newsModifyTitleInput, .newsModifyContentParagraph').focus(function() {
-        jQuery(this).addClass('newsModifySelectedInput');
-    });
-    // Toolbox fadeing:
-    // jQuery('.newsModifyContentParagraph').focusout(function() {
-    //     jQuery(this).parent().children(".newsModifyToolbox").fadeOut('fast');
-    // });
-    // jQuery('.newsModifyContentParagraph').focus(function() {
-    //     jQuery(this).parent().children(".newsModifyToolbox").fadeIn('fast');
-    // });
-    // jQuery(".newsModifyToolbox").hide();
 
-}
-function updateEditArticleForm(articleID,articleTitle,articleContent)
-{
-    jQuery("#newsModify_" + articleID + " > .newsModifyTitleInput").val(articleTitle);
-    jQuery("#newsModify_" + articleID + " > .newsModifyContentParagraph").text(articleContent);
-}
-function finishArticleEditing(articleID)
-{
-    var _title = jQuery("#newsModify_" +articleID+ " > .newsModifyTitleInput").val();
-    var _content = jQuery("#newsModify_" +articleID+ " > .newsModifyContentParagraph").text();
-    jQuery("#news_" +articleID+ " > h3").text(_title);
-    jQuery("#news_" +articleID+ " > p").html(newline2br(_content));
-
-    jQuery("#news_"+articleID+" > h3").attr("contenteditable","false");
-    jQuery("#news_"+articleID+" > .newsContentAndEditorWrapper > .newsContent").show();
-    jQuery("#news_"+articleID+" > .newsContentAndEditorWrapper > .newsContentEditor").css("visibility","collapsed");
-
-    // Update values in hiddenInputs (managedBean grabs value from them)
+function finishArticleEditing(articleID) {
+    // DK: Now, content is automatically taken from p:editor value
+    var _title = jQuery(ART_ID_PREFIX + articleID + " h3").text();
     // (JSF messup things with auto-naming forms ids/names but ends of them are as we defined)
-    jQuery("#newsModify_" +articleID+ " > form > input[id$='articleTitle']").val(_title);
-    jQuery("#newsModify_" +articleID+ " > form > input[id$='articleContent'").val(_content);
+    jQuery(ART_ID_PREFIX + articleID + " > form > input[id$='articleTitle']").val(_title);
+
+    _changeArticleState(articleID, ARTICLE_STATE_READ);
 }
 
-function adaptNewsContentAndEditorSizes(articleID)
-{
-    var newsContent = jQuery("#news_" +articleID+ " > .newsContentAndEditorWrapper > .newsContent");
-    var newsContentEditor = jQuery("#news_" +articleID+ " > .newsContentAndEditorWrapper > .newsContentEditor");
-    var newsContentAndEditorWrapper =  jQuery("#news_" +articleID+ " > .newsContentAndEditorWrapper");
-    // width of content and editor from wrapper width
-    var width = newsContentAndEditorWrapper.width();
-    newsContent.width(width);
-    newsContentEditor.width(width);
-    var maxHeight;
-    maxHeight = newsContent.height() + parseInt(newsContent.css('top'));
-    maxHeight = Math.max(maxHeight, newsContentEditor.height() + parseInt(newsContentEditor.css('top')));
+function adaptNewsContentAndEditorSizes(articleID) {
+    var articleContentElem = jQuery(ART_ID_PREFIX + articleID + " .article-content-p");
+    var articleEditorElem = jQuery("#editorFrame_" + articleID);
+    var articleContentEditorWrapperElem = jQuery(ART_ID_PREFIX + articleID + " .article-contentAndEditor-wrapper");
 
-    newsContentAndEditorWrapper.height(maxHeight);
+    var height;
+    if( jQuery(ART_ID_PREFIX + articleID + " .article-content-p").is(":visible") )
+        height = articleContentElem.height();// + parseInt(articleContentElem.css('top'));
+    else
+        height = jQuery("#editorFrame_" + articleID).height();
+    articleContentEditorWrapperElem.height(height);
 }
 
-function initializeArticleEditor()
-{
+function setupEditorIframeID(articleID) {
+    jQuery(ART_ID_PREFIX + articleID + " iframe").attr('id', 'editorFrame_' + articleID);
+
+}
+
+function updateEditorHeight(articleID) {
+    var editorFrame = jQuery("#editorFrame_" + articleID);
+    var editorDocHeight = editorFrame.get(0).contentWindow.document.body.offsetHeight + 'px';
+
+    jQuery(ART_ID_PREFIX + articleID + " .ui-editor").css('height', editorDocHeight);
+    editorFrame.css({overflow: 'hidden', height: editorDocHeight});
+    adaptNewsContentAndEditorSizes(articleID);
+}
+
+function initializeArticleEditor() {
+    // These global values if changed before p:edior init are aplied to further p:editor initialization
     jQuery.cleditor.defaultOptions.bodyStyle = "";
+    jQuery.cleditor.defaultOptions.width = "100%";
     jQuery.cleditor.defaultOptions.docCSSFile = "/app/resources/styles/page/article-editor-iframe.css";
 }
 
-
 // Event: On Document ready:
-jQuery(document).ready( function() {
-    // Unbind that shitty fx:
+jQuery(document).ready(function () {
+    // Unbind that shitty fx on toolbox buttons:
     jQuery('.ui-editor-button').unbind('mouseover');
     jQuery('.ui-editor-button').unbind('mouseout');
 });
+
+// 'private' functions
+function _setupEditorContent(articleID) {
+    var content = jQuery(ART_ID_PREFIX + articleID + " .article-content-p").html();
+    var editorWidget = PrimeFaces.widgets['articleEditorWidget' + articleID];
+
+    editorWidget.editor.focus();
+    setTimeout(function () {
+        editorWidget.clear();
+        editorWidget.editor.execCommand('inserthtml', content, false);
+    }, 0);
+    return false;
+}
+
+function _changeArticleState(articleID, ARTICLE_STATE) {
+    if (ARTICLE_STATE == ARTICLE_STATE_EDIT) {
+
+        jQuery(ART_ID_PREFIX + articleID + " h3").attr("contenteditable", "true");
+        jQuery(ART_ID_PREFIX + articleID + " .article-content-p").hide();
+        jQuery(ART_ID_PREFIX + articleID + " .ui-editor").css("visibility", "visible");
+
+        jQuery(ART_ID_PREFIX + articleID + " .article-edit-button").hide();
+        jQuery(ART_ID_PREFIX + articleID + " .article-editAprove-button").show();
+    }
+    else if (ARTICLE_STATE == ARTICLE_STATE_READ) {
+
+        jQuery(ART_ID_PREFIX + articleID + " h3").attr("contenteditable", "false");
+        jQuery(ART_ID_PREFIX + articleID + " .article-content-p").show();
+        jQuery(ART_ID_PREFIX + articleID + " .ui-editor").css("visibility", "collapsed");
+
+        jQuery(ART_ID_PREFIX + articleID + " .article-edit-button").show();
+        jQuery(ART_ID_PREFIX + articleID + " .article-editAprove-button").hide();
+    }
+}

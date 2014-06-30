@@ -17,12 +17,16 @@ p {
 .ui-widget-content {
   border: 0;
 }
+.article-focusedEdit-span {
+  color: #427f94 !important;
+  transition: all 0.3s ease-out;
+}
 .ui-editor {
   background-color: transparent !important;
 }
 .ui-editor-toolbar {
   position: relative;
-  top: 10px;
+  top: 0px;
   background: none !important;
   background-color: transparent !important;
   height: 34px !important;

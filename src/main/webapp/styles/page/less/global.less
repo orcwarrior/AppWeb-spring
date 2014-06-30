@@ -40,3 +40,10 @@ p {
   -moz-border-top-right-radius: @radius;
   border-bottom-top-radius: @radius;
 }
+
+// When modifyable content of title or p:editor is focused
+// this class is aplied
+.article-focusedEdit-span {
+  color: darken(@mainThemeColor, 10%) !important;
+  transition: all @transitionTime ease-out;
+}

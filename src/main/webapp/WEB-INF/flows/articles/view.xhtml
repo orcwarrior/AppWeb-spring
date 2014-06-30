@@ -10,9 +10,9 @@
     <ui:define name="title">News page</ui:define>
 
     <ui:define name="content">
-    <script type="text/javascript">
-        initializeArticleEditor();
-    </script>
+        <script type="text/javascript">
+            initializeArticleEditor();
+        </script>
         <!--DK: Temporary removed-->
         <ui:remove>
             <h:panelGroup layout="block" styleClass="error" rendered="#{facesHelper.error}">
@@ -22,45 +22,49 @@
 
         <p:dataScroller value="#{articleBean.articles}" var="a" chunkSize="4">
             <fieldset>
-                <div id="news_#{a.id}">
-                    <!--button modify-->
-                    <a class="newsEditButton"
-                       href="javascript:editArticle(#{a.id});  "
+                <div id="article_#{a.id}" class="article-wrapper">
+                    <a class="article-edit-button" href="javascript:editArticle(#{a.id});"
                        update="articleContentEditor#{a.id}">
                         <ui:include src="../../../img/ui/cog.svg"/>
                     </a>
-                    <h:form id="articlePost#{a.id}">
-                        <h:commandLink class="newsModifyModFinishButton" action="modifyArticle"
+                    <h:form id="articleForm">
+                        <h:commandLink class="article-editAprove-button" action="modifyArticle"
                                        onclick="javascript:finishArticleEditing(#{a.id});">
-                            <f:ajax execute="@form" render="@form"/>
+                            <f:ajax execute="@form" render="@form" />
                             <f:param name="articleID" value="#{a.id}"/>
                             <ui:include src="../../../img/ui/checkmark.svg"/>
                         </h:commandLink>
 
-                        <!--Values here will be auto-completed by js-->
+                        <!--Values here will be auto-completed by js
+                            and sent to backing bean with request-->
                         <h:inputHidden id="articleTitle" type="hidden" name="articleTitle"
                                        value="#{articleBean.articleTitle}"/>
-                        <h:inputHidden id="articleContent" type="hidden" name="articleContent"
-                                       value="#{articleBean.articleContent}"/>
-                    </h:form>
 
-                    <h3 class="newsTitle alt">#{a.title}</h3>
+                        <h3 class="article-title alt">#{a.title}</h3>
 
-                    <div class="newsContentAndEditorWrapper">
-                        <p class="newsContent">#{a.content}</p>
-
-                        <h:form id="articleContentEditorForm#{a.id}" class="newsContentEditor">
+                        <div class="article-contentAndEditor-wrapper">
+                            <div class="article-content-p"><h:outputText value="#{a.content}" escape="false" /></div>
                             <p:editor id="articleContentEditor#{a.id}" widgetVar="articleEditorWidget#{a.id}"
                                       controls="bold italic underline link unlink image"
-                                      value="#{a.content}"></p:editor>
-                        </h:form>
-                    </div>
+                                      value="#{articleBean.articleContent}"
+                                      onchange="updateEditorHeight(#{a.id})">
+                            </p:editor>
+                        </div>
+                        <script type="text/javascript">
+                        jQuery(document).ready(function () {
+                            setupEditorIframeID(#{a.id});
+                            updateEditorHeight(#{a.id});
+                            adaptNewsContentAndEditorSizes(#{a.id});
+                            // DK: When images are loaded sizes need's to be recalculated
+                            jQuery(".article-content-p img").load(
+                                    function() {
+                                        adaptNewsContentAndEditorSizes(#{a.id});
+                                    });
+                        });
+                        </script>
+                    </h:form>
+
                 </div>
-                <script type="text/javascript">jQuery(document).ready(function () {
-                    adaptNewsContentAndEditorSizes(#{a.id})
-                });</script>
-
-
             </fieldset>
         </p:dataScroller>
     </ui:define>
