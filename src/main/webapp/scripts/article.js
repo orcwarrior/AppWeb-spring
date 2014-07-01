@@ -12,9 +12,9 @@ function editArticle(articleID) {
 
 function finishArticleEditing(articleID) {
     // DK: Now, content is automatically taken from p:editor value
-    var _title = jQuery(ART_ID_PREFIX + articleID + " h3").text();
+    var title = jQuery(ART_ID_PREFIX + articleID + " h3").text();
     // (JSF messup things with auto-naming forms ids/names but ends of them are as we defined)
-    jQuery(ART_ID_PREFIX + articleID + " > form > input[id$='articleTitle']").val(_title);
+    jQuery(ART_ID_PREFIX + articleID + " > form > input[id$='articleTitle']").val(title);
 
     _changeArticleState(articleID, ARTICLE_STATE_READ);
 }
@@ -56,8 +56,7 @@ function initializeArticleEditor() {
 // Event: On Document ready:
 jQuery(document).ready(function () {
     // Unbind that shitty fx on toolbox buttons:
-    jQuery('.ui-editor-button').unbind('mouseover');
-    jQuery('.ui-editor-button').unbind('mouseout');
+    jQuery('.ui-editor-button').unbind('mouseover').unbind('mouseout');
 });
 
 // 'private' functions

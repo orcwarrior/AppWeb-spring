@@ -4,18 +4,25 @@
 @import "global.less";
 
 // variables:
-@enabledButtonFillColor: ffffff;
-@disabledButtonFillColor: aaaaaa;
+@hlpMainColorAsString: %("%d",@mainThemeColor);
+@enabledButtonFillColor: replace( @hlpMainColorAsString ,"#","");
+@disabledButtonFillColor: @enabledButtonFillColor;
+@focusedButtonFillColor: ffffff;
 @nonFocusedButtonLightness: 20%;
-@toolbarWidth: 204px;
+@toolbarWidth: 222px;
+@baseIconSize: 16;
+@bigIconSize: @baseIconSize + 1;
+@hoverIconSize: @baseIconSize;
+@toolbox-icons-padding: 6px;
+@buttonsMargins: 2px;
 .ui-editor {
   background-color: transparent !important;
 }
 .ui-editor-toolbar {
-  position: relative; top: 0px;
+  position: relative; top: -4px;
   background: none !important;
   background-color: transparent !important;
-  height: 34px !important;
+  height: 32px !important;
 }
 .ui-editor-group {
   float: right;
@@ -32,86 +39,102 @@
   }
 }
 .ui-editor-button{
-  .uiButton(24px);
-  .border-radius(1px) !important;
+  .uiButton(17px);
+  .border-radius(50%) !important;
 
   background-repeat: no-repeat !important;
   background-position: center !important;
   padding: @toolbox-icons-padding !important;
-  margin: 0 1px 0 1px !important;
+  margin: 0 @buttonsMargins 0 @buttonsMargins !important;
   display: block;
   float: left;
-  fill: #fff;
-  background-color: lighten(@mainThemeColor,@nonFocusedButtonLightness) !important;
-  &:hover{ background-color: @mainThemeColor !important;}
+  fill: @mainThemeColor;
+  // background-color: lighten(@mainThemeColor,@nonFocusedButtonLightness) !important;
+  background-color: transparent;
+  border: 2px solid @mainThemeColor !important;
+  &:hover{
+    background-color: @mainThemeColor !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+  }
 }
 
-.ui-editor-button:first-child{
-  .border-radius-lastLeft(4px);
-}
-.ui-editor-button:last-child{
-  .border-radius-lastRight(4px);
-}
 
 // Concrete buttons:
 // (thanks god for attribute selector :) )
 
 .ui-editor-button[title="Bold"]{
-  background: url('/app/SVG:bold.svg?size=18&fill=@{enabledButtonFillColor}') !important;
+  background: url('/app/SVG:bold.svg?size=@{bigIconSize}&fill=@{enabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:bold.svg?size=@{bigIconSize}&fill=@{focusedButtonFillColor}') !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Italic"]{
-  background: url('/app/SVG:italic.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  background: url('/app/SVG:italic.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:italic.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Underline"]{
-  background: url('/app/SVG:underline.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  background: url('/app/SVG:underline.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:underline.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Insert Hyperlink"]{
-  background: url('/app/SVG:link.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  background: url('/app/SVG:link.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:link.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Remove Hyperlink"]{
-  background: url('/app/SVG:unlink.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  background: url('/app/SVG:unlink.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:unlink.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Insert Image"]{
-  background: url('/app/SVG:image.svg?size=17&fill=@{enabledButtonFillColor}') !important;
+  background: url('/app/SVG:image.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:image.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
   .ui-editor-button;
 }
 
 // Disabled buttons:
 
 .ui-editor-disabled {
-  opacity: 1 !important;
+  opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: lighten(@mainThemeColor,@nonFocusedButtonLightness) !important;
-  &:hover{ background-color: lighten(@mainThemeColor,@nonFocusedButtonLightness) !important;}
+  background-color: transparent;
+  &:hover{
+    background-color: transparent !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+  }
 }
 .ui-editor-disabled[title="Bold"]{
-   background: url('/app/SVG:bold.svg?size=18&fill=@{disabledButtonFillColor}') !important;
+   background: url('/app/SVG:bold.svg?size=@{bigIconSize}&fill=@{disabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:bold.svg?size=@{bigIconSize}&fill=@{disabledButtonFillColor}') !important;}
   .ui-editor-disabled;
 }
 .ui-editor-disabled[title="Italic"]{
-  background: url('/app/SVG:italic.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  background: url('/app/SVG:italic.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:italic.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;}
   .ui-editor-disabled;
 }
 .ui-editor-disabled[title="Underline"]{
-  background: url('/app/SVG:underline.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  background: url('/app/SVG:underline.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:underline.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;}
   .ui-editor-disabled;
 }
 .ui-editor-disabled[title="Insert Hyperlink"]{
-  background: url('/app/SVG:link.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  background: url('/app/SVG:link.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:link.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;}
   .ui-editor-disabled;
 }
 .ui-editor-disabled[title="Remove Hyperlink"]{
-  background: url('/app/SVG:unlink.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  background: url('/app/SVG:unlink.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:unlink.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;}
   .ui-editor-disabled;
 }
 .ui-editor-disabled[title="Insert Image"]{
-  background: url('/app/SVG:image.svg?size=17&fill=@{disabledButtonFillColor}') !important;
+  background: url('/app/SVG:image.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;
+  &:hover{ background: url('/app/SVG:image.svg?size=@{baseIconSize}&fill=@{disabledButtonFillColor}') !important;}
   .ui-editor-disabled;
 }
 

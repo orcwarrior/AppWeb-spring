@@ -26,268 +26,329 @@ p {
 }
 .ui-editor-toolbar {
   position: relative;
-  top: 0px;
+  top: -4px;
   background: none !important;
   background-color: transparent !important;
-  height: 34px !important;
+  height: 32px !important;
 }
 .ui-editor-group {
   float: right;
-  width: 204px !important;
+  width: 222px !important;
   background-color: transparent !important;
 }
 .ui-editor-button {
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
   transition: all 0.3s ease-out !important;
   fill: #777777;
-  -webkit-border-radius: 1px !important;
-  -moz-border-radius: 1px !important;
-  border-radius: 1px !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  padding: 4px !important;
-  margin: 0 1px 0 1px !important;
+  padding: 6px !important;
+  margin: 0 2px 0 2px !important;
   display: block;
   float: left;
-  fill: #fff;
-  background-color: #9cc5d3 !important;
+  fill: #559bb4;
+  background-color: transparent;
+  border: 2px solid #559bb4 !important;
 }
 .ui-editor-button > svg {
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
 }
 .ui-editor-button:hover {
   background-color: #559bb4 !important;
-}
-.ui-editor-button:first-child {
-  -webkit-border-top-left-radius: 4px;
-  -moz-border-top-left-radius: 4px;
-  border-bottom-top-radius: 4px;
-}
-.ui-editor-button:last-child {
-  -webkit-border-top-right-radius: 4px;
-  -moz-border-top-right-radius: 4px;
-  border-bottom-top-radius: 4px;
-}
-.ui-editor-button[title="Bold"] {
-  background: url('/app/SVG:bold.svg?size=18&fill=ffffff') !important;
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease-out !important;
-  fill: #777777;
-  -webkit-border-radius: 1px !important;
-  -moz-border-radius: 1px !important;
-  border-radius: 1px !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  padding: 4px !important;
-  margin: 0 1px 0 1px !important;
+}
+.ui-editor-button[title="Bold"] {
+  background: url('/app/SVG:bold.svg?size=17&fill=559bb4') !important;
+  width: 17px;
+  height: 17px;
+  transition: all 0.3s ease-out !important;
+  fill: #777777;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  padding: 6px !important;
+  margin: 0 2px 0 2px !important;
   display: block;
   float: left;
-  fill: #fff;
-  background-color: #9cc5d3 !important;
+  fill: #559bb4;
+  background-color: transparent;
+  border: 2px solid #559bb4 !important;
+}
+.ui-editor-button[title="Bold"]:hover {
+  background: url('/app/SVG:bold.svg?size=17&fill=ffffff') !important;
 }
 .ui-editor-button[title="Bold"] > svg {
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
 }
 .ui-editor-button[title="Bold"]:hover {
   background-color: #559bb4 !important;
-}
-.ui-editor-button[title="Italic"] {
-  background: url('/app/SVG:italic.svg?size=17&fill=ffffff') !important;
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease-out !important;
-  fill: #777777;
-  -webkit-border-radius: 1px !important;
-  -moz-border-radius: 1px !important;
-  border-radius: 1px !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  padding: 4px !important;
-  margin: 0 1px 0 1px !important;
+}
+.ui-editor-button[title="Italic"] {
+  background: url('/app/SVG:italic.svg?size=16&fill=559bb4') !important;
+  width: 17px;
+  height: 17px;
+  transition: all 0.3s ease-out !important;
+  fill: #777777;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  padding: 6px !important;
+  margin: 0 2px 0 2px !important;
   display: block;
   float: left;
-  fill: #fff;
-  background-color: #9cc5d3 !important;
+  fill: #559bb4;
+  background-color: transparent;
+  border: 2px solid #559bb4 !important;
+}
+.ui-editor-button[title="Italic"]:hover {
+  background: url('/app/SVG:italic.svg?size=16&fill=ffffff') !important;
 }
 .ui-editor-button[title="Italic"] > svg {
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
 }
 .ui-editor-button[title="Italic"]:hover {
   background-color: #559bb4 !important;
-}
-.ui-editor-button[title="Underline"] {
-  background: url('/app/SVG:underline.svg?size=17&fill=ffffff') !important;
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease-out !important;
-  fill: #777777;
-  -webkit-border-radius: 1px !important;
-  -moz-border-radius: 1px !important;
-  border-radius: 1px !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  padding: 4px !important;
-  margin: 0 1px 0 1px !important;
+}
+.ui-editor-button[title="Underline"] {
+  background: url('/app/SVG:underline.svg?size=16&fill=559bb4') !important;
+  width: 17px;
+  height: 17px;
+  transition: all 0.3s ease-out !important;
+  fill: #777777;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  padding: 6px !important;
+  margin: 0 2px 0 2px !important;
   display: block;
   float: left;
-  fill: #fff;
-  background-color: #9cc5d3 !important;
+  fill: #559bb4;
+  background-color: transparent;
+  border: 2px solid #559bb4 !important;
+}
+.ui-editor-button[title="Underline"]:hover {
+  background: url('/app/SVG:underline.svg?size=16&fill=ffffff') !important;
 }
 .ui-editor-button[title="Underline"] > svg {
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
 }
 .ui-editor-button[title="Underline"]:hover {
   background-color: #559bb4 !important;
-}
-.ui-editor-button[title="Insert Hyperlink"] {
-  background: url('/app/SVG:link.svg?size=17&fill=ffffff') !important;
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease-out !important;
-  fill: #777777;
-  -webkit-border-radius: 1px !important;
-  -moz-border-radius: 1px !important;
-  border-radius: 1px !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  padding: 4px !important;
-  margin: 0 1px 0 1px !important;
+}
+.ui-editor-button[title="Insert Hyperlink"] {
+  background: url('/app/SVG:link.svg?size=16&fill=559bb4') !important;
+  width: 17px;
+  height: 17px;
+  transition: all 0.3s ease-out !important;
+  fill: #777777;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  padding: 6px !important;
+  margin: 0 2px 0 2px !important;
   display: block;
   float: left;
-  fill: #fff;
-  background-color: #9cc5d3 !important;
+  fill: #559bb4;
+  background-color: transparent;
+  border: 2px solid #559bb4 !important;
+}
+.ui-editor-button[title="Insert Hyperlink"]:hover {
+  background: url('/app/SVG:link.svg?size=16&fill=ffffff') !important;
 }
 .ui-editor-button[title="Insert Hyperlink"] > svg {
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
 }
 .ui-editor-button[title="Insert Hyperlink"]:hover {
   background-color: #559bb4 !important;
-}
-.ui-editor-button[title="Remove Hyperlink"] {
-  background: url('/app/SVG:unlink.svg?size=17&fill=ffffff') !important;
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease-out !important;
-  fill: #777777;
-  -webkit-border-radius: 1px !important;
-  -moz-border-radius: 1px !important;
-  border-radius: 1px !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  padding: 4px !important;
-  margin: 0 1px 0 1px !important;
+}
+.ui-editor-button[title="Remove Hyperlink"] {
+  background: url('/app/SVG:unlink.svg?size=16&fill=559bb4') !important;
+  width: 17px;
+  height: 17px;
+  transition: all 0.3s ease-out !important;
+  fill: #777777;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  padding: 6px !important;
+  margin: 0 2px 0 2px !important;
   display: block;
   float: left;
-  fill: #fff;
-  background-color: #9cc5d3 !important;
+  fill: #559bb4;
+  background-color: transparent;
+  border: 2px solid #559bb4 !important;
+}
+.ui-editor-button[title="Remove Hyperlink"]:hover {
+  background: url('/app/SVG:unlink.svg?size=16&fill=ffffff') !important;
 }
 .ui-editor-button[title="Remove Hyperlink"] > svg {
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
 }
 .ui-editor-button[title="Remove Hyperlink"]:hover {
   background-color: #559bb4 !important;
-}
-.ui-editor-button[title="Insert Image"] {
-  background: url('/app/SVG:image.svg?size=17&fill=ffffff') !important;
-  width: 24px;
-  height: 24px;
-  transition: all 0.3s ease-out !important;
-  fill: #777777;
-  -webkit-border-radius: 1px !important;
-  -moz-border-radius: 1px !important;
-  border-radius: 1px !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  padding: 4px !important;
-  margin: 0 1px 0 1px !important;
+}
+.ui-editor-button[title="Insert Image"] {
+  background: url('/app/SVG:image.svg?size=16&fill=559bb4') !important;
+  width: 17px;
+  height: 17px;
+  transition: all 0.3s ease-out !important;
+  fill: #777777;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  padding: 6px !important;
+  margin: 0 2px 0 2px !important;
   display: block;
   float: left;
-  fill: #fff;
-  background-color: #9cc5d3 !important;
+  fill: #559bb4;
+  background-color: transparent;
+  border: 2px solid #559bb4 !important;
+}
+.ui-editor-button[title="Insert Image"]:hover {
+  background: url('/app/SVG:image.svg?size=16&fill=ffffff') !important;
 }
 .ui-editor-button[title="Insert Image"] > svg {
-  width: 24px;
-  height: 24px;
+  width: 17px;
+  height: 17px;
 }
 .ui-editor-button[title="Insert Image"]:hover {
   background-color: #559bb4 !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 .ui-editor-disabled {
-  opacity: 1 !important;
+  opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: #9cc5d3 !important;
+  background-color: transparent;
 }
 .ui-editor-disabled:hover {
-  background-color: #9cc5d3 !important;
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 .ui-editor-disabled[title="Bold"] {
-  background: url('/app/SVG:bold.svg?size=18&fill=aaaaaa') !important;
-  opacity: 1 !important;
+  background: url('/app/SVG:bold.svg?size=17&fill=559bb4') !important;
+  opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: #9cc5d3 !important;
+  background-color: transparent;
 }
 .ui-editor-disabled[title="Bold"]:hover {
-  background-color: #9cc5d3 !important;
+  background: url('/app/SVG:bold.svg?size=17&fill=559bb4') !important;
+}
+.ui-editor-disabled[title="Bold"]:hover {
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 .ui-editor-disabled[title="Italic"] {
-  background: url('/app/SVG:italic.svg?size=17&fill=aaaaaa') !important;
-  opacity: 1 !important;
+  background: url('/app/SVG:italic.svg?size=16&fill=559bb4') !important;
+  opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: #9cc5d3 !important;
+  background-color: transparent;
 }
 .ui-editor-disabled[title="Italic"]:hover {
-  background-color: #9cc5d3 !important;
+  background: url('/app/SVG:italic.svg?size=16&fill=559bb4') !important;
+}
+.ui-editor-disabled[title="Italic"]:hover {
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 .ui-editor-disabled[title="Underline"] {
-  background: url('/app/SVG:underline.svg?size=17&fill=aaaaaa') !important;
-  opacity: 1 !important;
+  background: url('/app/SVG:underline.svg?size=16&fill=559bb4') !important;
+  opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: #9cc5d3 !important;
+  background-color: transparent;
 }
 .ui-editor-disabled[title="Underline"]:hover {
-  background-color: #9cc5d3 !important;
+  background: url('/app/SVG:underline.svg?size=16&fill=559bb4') !important;
+}
+.ui-editor-disabled[title="Underline"]:hover {
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 .ui-editor-disabled[title="Insert Hyperlink"] {
-  background: url('/app/SVG:link.svg?size=17&fill=aaaaaa') !important;
-  opacity: 1 !important;
+  background: url('/app/SVG:link.svg?size=16&fill=559bb4') !important;
+  opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: #9cc5d3 !important;
+  background-color: transparent;
 }
 .ui-editor-disabled[title="Insert Hyperlink"]:hover {
-  background-color: #9cc5d3 !important;
+  background: url('/app/SVG:link.svg?size=16&fill=559bb4') !important;
+}
+.ui-editor-disabled[title="Insert Hyperlink"]:hover {
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 .ui-editor-disabled[title="Remove Hyperlink"] {
-  background: url('/app/SVG:unlink.svg?size=17&fill=aaaaaa') !important;
-  opacity: 1 !important;
+  background: url('/app/SVG:unlink.svg?size=16&fill=559bb4') !important;
+  opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: #9cc5d3 !important;
+  background-color: transparent;
 }
 .ui-editor-disabled[title="Remove Hyperlink"]:hover {
-  background-color: #9cc5d3 !important;
+  background: url('/app/SVG:unlink.svg?size=16&fill=559bb4') !important;
 }
-.ui-editor-disabled[title="Insert Image"] {
-  background: url('/app/SVG:image.svg?size=17&fill=aaaaaa') !important;
-  opacity: 1 !important;
+.ui-editor-disabled[title="Remove Hyperlink"]:hover {
+  background-color: transparent !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
-  background-color: #9cc5d3 !important;
+}
+.ui-editor-disabled[title="Insert Image"] {
+  background: url('/app/SVG:image.svg?size=16&fill=559bb4') !important;
+  opacity: 0.5 !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-color: transparent;
 }
 .ui-editor-disabled[title="Insert Image"]:hover {
-  background-color: #9cc5d3 !important;
+  background: url('/app/SVG:image.svg?size=16&fill=559bb4') !important;
+}
+.ui-editor-disabled[title="Insert Image"]:hover {
+  background-color: transparent !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
 }
 .ui-editor-popup,
 .ui-editor-prompt {
@@ -296,7 +357,7 @@ p {
   border-radius: 1px !important;
   margin-top: 10px;
   margin-left: -169px;
-  width: 195px;
+  width: 213px;
   border: none !important;
   background-color: #9cc5d3 !important;
 }

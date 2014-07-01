@@ -25,15 +25,13 @@ public class SvgService {
         StringWriter writer = new StringWriter();
         IOUtils.copy(SvgStream, writer, "UTF8");
         String processedSvg = writer.toString();
-        logger.info("SVG: " + processedSvg);
         processedSvg = setupSvgSize(processedSvg,size);
         processedSvg = setupSvgFill(processedSvg, fill);
-        logger.info("SVG-processed: " + processedSvg);
+        logger.info("Generate SVG, fill: "+ fill + "/nSize: "+ size.toString());
         return processedSvg;
     }
 
     private String setupSvgFill(String processedSvg, String fill) {
-        // hex color? (served without '#')
         if (fill.matches("^[0-9A-Fa-f]{6}$"))
             fill = "#"+fill;
         processedSvg = processedSvg.replace("<path ","<path fill=\""+fill+"\" ");

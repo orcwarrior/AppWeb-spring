@@ -13,6 +13,10 @@ Problemy
 * Problem z działaniem kontrolerów springa, wkońcu po ich uruchomieniu problem z wyświetlaniem flow: news
   UP: Po zmianie nazwy folderu (a wiec i flow) z news na articles... działa o_O
 
+* Problem z kontrolerem SVG, kolor zwykle generowany jest w formie szesnastkowego kodu rgb z prefixem '#'
+  niestety wszystko co znajdzie się po znaku # doklejonego do linku wg. standardów jest anchorem pozycji
+  na stronie, wymaga to przesyłania kolorów w innej formie, np. z pominięciem tego znaku.
+
 * Problem z modyfikacją podglądu komponentu p:editor zbudowanego na iframe, p:editor juz nie obsluguje lazy-inita
   natomiast jeśli jest już wygenerowany, zmiana konfiguracji widgeta nie pomagała, jako że iframe nie należy do
   mocno dynamicznych komponentów HTML, jako rozwiazanie: sprawdzenie co siedzi w komponencie edytora, okazuje się
