@@ -36,8 +36,8 @@
 		<security:authentication-provider>
 			<security:password-encoder hash="md5" />
                 <security:jdbc-user-service data-source-ref="dataSource"
-                 users-by-username-query="SELECT username, password, 'true' as enabled FROM springdb.users WHERE username = ?"
-                 authorities-by-username-query="SELECT u.username, ROLE FROM springdb.users u, springdb.user_roles a WHERE u.username = a.username AND u.username = ?"
+                 users-by-username-query="SELECT name, password, 'true' as enabled FROM springdb.users WHERE username = ?"
+                 authorities-by-username-query="SELECT u.name, ROLE FROM springdb.users u, springdb.user_roles a WHERE u.id = a.id AND u.name = ?"
                         />
 		</security:authentication-provider>
 	</security:authentication-manager>	
