@@ -6,12 +6,13 @@
 @transitionTime: 0.3s;
 @iconColor: #777;
 @mainThemeColor: #559bb4;
-
+@defaultFontColor: #444;
+@mainBGColor: #fff;
 body {
   font-size: 1.2em !important; /*DK Scale-up font for a little*/
 }
 p {
-  color: #444;
+  color: @defaultFontColor;
   line-height: 1.5em;
 }
 .ui-datascroller-content, .ui-widget-content{
@@ -46,3 +47,11 @@ p {
   color: darken(@mainThemeColor, 10%) !important;
   transition: all @transitionTime ease-out;
 }
+
+.transition(@value) {
+  -webkit-transition: @value;
+  -o-transition: @value;
+  -moz-transition: @value;
+  transition: @value;
+}
+

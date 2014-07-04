@@ -17,6 +17,7 @@
 .article-wrapper{
   padding-top: 1em; padding-bottom: 1em;
   height: auto;
+  background-color: @mainBGColor;
 }
 a.article-edit-button {
   .article-button;
@@ -46,13 +47,59 @@ a.article-editAprove-button {
 
 .article-content-p {
   position: absolute;
-  top: 5px;
+  top: 4px;
 }
 
+*,
+*:after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.article-content-p{
+  & a {
+    position: relative;
+    display: inline-block;
+    margin: 0px 1px;
+    outline: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    // letter-spacing: 1px;
+    color: difference(@mainThemeColor, @defaultFontColor);
+    font-weight: 700;
+    text-shadow: none;
+  }
+    & a:hover,
+    & a:focus{
+    }
+
+    & a::before {
+      color: @mainThemeColor;
+      content: attr(data-hover);
+      position: absolute;
+      opacity: 0;
+      -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+      -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+      transition: transform 0.3s, opacity 0.3s;
+      -webkit-transform: scale(0.9);
+      -moz-transform: scale(0.9);
+      transform: scale(0.9);
+    }
+
+    & a:hover::before,
+    & a:focus::before {
+      -webkit-transform: scale(1);
+      -moz-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+}
 
 .ui-editor {
-  .article-content-p;
-  top: -29px;
+  position: absolute;
+  top: -32px;
   visibility: collapse;
 }
 

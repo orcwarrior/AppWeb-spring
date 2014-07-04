@@ -1,6 +1,7 @@
 package org.springframework.samples.webflow.news;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.webflow.svg.SvgService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -8,6 +9,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
@@ -30,6 +32,9 @@ public class ArticleBean implements Serializable{
     @ManagedProperty(value = "#{ArticleController}")
     public ArticleController articleController;
 
+    @Inject
+    public ArticleService articleService;
+
     public String articleTitle;
 
     public String articleContent;
@@ -42,9 +47,7 @@ public class ArticleBean implements Serializable{
     }
     public Article[] getArticles()
     {
-        // TODO: Autowiring doesn't work, fix
        List<Article> artList = articleDao.getArticles();
-
        return artList.toArray(new Article[artList.size()]);
     }
 
@@ -54,6 +57,8 @@ public class ArticleBean implements Serializable{
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("articleID");
         Integer articleID = Integer.valueOf(paramArticleID);
 
+        // process article-contents links:
+        articleContent = articleService.articleContentProcessChain(articleContent);
         logger.info("ArticleID: "+articleID);
         logger.info("Article-title: "+articleTitle);
         logger.info("Article-content: "+articleContent);

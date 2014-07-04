@@ -8,6 +8,9 @@ var ARTICLE_STATE_READ = 0, ARTICLE_STATE_EDIT = 1;
 function editArticle(articleID) {
     _setupEditorContent(articleID);
     _changeArticleState(articleID, ARTICLE_STATE_EDIT);
+
+    // DK: prompt where u put url of link/image looks ugly this func make it tottaly re-stylized:
+    remakeArticleEditorPrompt();
 }
 
 function finishArticleEditing(articleID) {
@@ -34,7 +37,6 @@ function adaptNewsContentAndEditorSizes(articleID) {
 
 function setupEditorIframeID(articleID) {
     jQuery(ART_ID_PREFIX + articleID + " iframe").attr('id', 'editorFrame_' + articleID);
-
 }
 
 function updateEditorHeight(articleID) {
@@ -52,7 +54,43 @@ function initializeArticleEditor() {
     jQuery.cleditor.defaultOptions.width = "100%";
     jQuery.cleditor.defaultOptions.docCSSFile = "/app/resources/styles/page/article-editor-iframe.css";
 }
+function remakeArticleEditorPrompt() {
 
+    var newHTML = "<form id=\"theForm\" class=\"simform\">\n" +
+        "<div class=\"simform-inner\">\n" +
+        "<ol class=\"questions\">\n" +
+        "<li>\n" +
+     // "<span><label for=\"q1\">Wprowadź adres:</label></span>\n" +
+        "<input id=\"q1\" name=\"q1\" type=\"text\" placeholder='(wprowadź link)'/>\n" +
+        "</li>\n" +
+        "</ol>\n" +
+     //   "<button class=\"submit\" type=\"submit\">Dodaj!</button>\n" +
+        "<div class=\"controls\">\n" +
+        "<input type=\"button\" class=\"next\" value=\"Submit\"></input>\n" +
+        "<span class=\"error-message\"></span>\n" +
+        "</div>\n" +
+        "</div>\n" +
+        "<span class=\"final-message\">Dodano!</span>\n" +
+        "</form>" +
+        // DK: This hack allow us to actually submit added url value
+        "<input type=\"button\" value=\"Submit\" style=\"display: none\">";
+
+    var oldSubmitBtn = jQuery(".ui-editor-prompt > input[type='button']");
+
+    var el = jQuery(".ui-editor-prompt");
+    el.wrapInner( "<div class='to-remove'></div>" );
+    el.append(newHTML);
+    // oldSubmitBtn.clone(true).appendTo(".ui-editor-prompt .controls").addClass('next');
+    jQuery(el).children(".to-remove").remove();
+
+    var theForm = document.getElementById( 'theForm' );
+    theForm.setAttribute( "autocomplete", "off" );
+    // DK: On click of form, emulate clEditor button click
+    jQuery('#theForm .next').click(function() {
+        jQuery('.ui-editor-prompt > :button').trigger("click");
+    });
+    new stepsForm( theForm );
+}
 // Event: On Document ready:
 jQuery(document).ready(function () {
     // Unbind that shitty fx on toolbox buttons:

@@ -27,7 +27,7 @@ public class SvgService {
         String processedSvg = writer.toString();
         processedSvg = setupSvgSize(processedSvg,size);
         processedSvg = setupSvgFill(processedSvg, fill);
-        logger.info("Generate SVG, fill: "+ fill + "/nSize: "+ size.toString());
+        logger.info("Generate SVG, fill: "+ fill + ", Size: "+ size.toString());
         return processedSvg;
     }
 

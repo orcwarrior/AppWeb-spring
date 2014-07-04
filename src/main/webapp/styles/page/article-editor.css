@@ -10,7 +10,7 @@ body {
   /*DK Scale-up font for a little*/
 }
 p {
-  color: #444;
+  color: #444444;
   line-height: 1.5em;
 }
 .ui-datascroller-content,
@@ -27,18 +27,19 @@ p {
 .ui-editor-toolbar {
   position: relative;
   top: -4px;
+  margin-bottom: 4px;
   background: none !important;
   background-color: transparent !important;
   height: 32px !important;
 }
 .ui-editor-group {
   float: right;
-  width: 222px !important;
+  width: 216px !important;
   background-color: transparent !important;
 }
 .ui-editor-button {
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
   transition: all 0.3s ease-out !important;
   fill: #777777;
   -webkit-border-radius: 50% !important;
@@ -55,8 +56,8 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button > svg {
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
 }
 .ui-editor-button:hover {
   background-color: #559bb4 !important;
@@ -65,8 +66,8 @@ p {
 }
 .ui-editor-button[title="Bold"] {
   background: url('/app/SVG:bold.svg?size=17&fill=559bb4') !important;
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
   transition: all 0.3s ease-out !important;
   fill: #777777;
   -webkit-border-radius: 50% !important;
@@ -83,11 +84,11 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Bold"]:hover {
-  background: url('/app/SVG:bold.svg?size=17&fill=ffffff') !important;
+  background: url('/app/SVG:bold.svg?size=17&fill=ffffff') space 0 0 !important;
 }
 .ui-editor-button[title="Bold"] > svg {
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
 }
 .ui-editor-button[title="Bold"]:hover {
   background-color: #559bb4 !important;
@@ -96,8 +97,8 @@ p {
 }
 .ui-editor-button[title="Italic"] {
   background: url('/app/SVG:italic.svg?size=16&fill=559bb4') !important;
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
   transition: all 0.3s ease-out !important;
   fill: #777777;
   -webkit-border-radius: 50% !important;
@@ -114,11 +115,11 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Italic"]:hover {
-  background: url('/app/SVG:italic.svg?size=16&fill=ffffff') !important;
+  background: url('/app/SVG:italic.svg?size=16&fill=ffffff') space 0 0 !important;
 }
 .ui-editor-button[title="Italic"] > svg {
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
 }
 .ui-editor-button[title="Italic"]:hover {
   background-color: #559bb4 !important;
@@ -127,8 +128,8 @@ p {
 }
 .ui-editor-button[title="Underline"] {
   background: url('/app/SVG:underline.svg?size=16&fill=559bb4') !important;
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
   transition: all 0.3s ease-out !important;
   fill: #777777;
   -webkit-border-radius: 50% !important;
@@ -145,11 +146,11 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Underline"]:hover {
-  background: url('/app/SVG:underline.svg?size=16&fill=ffffff') !important;
+  background: url('/app/SVG:underline.svg?size=16&fill=ffffff') space 0 0 !important;
 }
 .ui-editor-button[title="Underline"] > svg {
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
 }
 .ui-editor-button[title="Underline"]:hover {
   background-color: #559bb4 !important;
@@ -158,8 +159,8 @@ p {
 }
 .ui-editor-button[title="Insert Hyperlink"] {
   background: url('/app/SVG:link.svg?size=16&fill=559bb4') !important;
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
   transition: all 0.3s ease-out !important;
   fill: #777777;
   -webkit-border-radius: 50% !important;
@@ -176,11 +177,11 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Insert Hyperlink"]:hover {
-  background: url('/app/SVG:link.svg?size=16&fill=ffffff') !important;
+  background: url('/app/SVG:link.svg?size=16&fill=ffffff') space 0 0 !important;
 }
 .ui-editor-button[title="Insert Hyperlink"] > svg {
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
 }
 .ui-editor-button[title="Insert Hyperlink"]:hover {
   background-color: #559bb4 !important;
@@ -189,8 +190,8 @@ p {
 }
 .ui-editor-button[title="Remove Hyperlink"] {
   background: url('/app/SVG:unlink.svg?size=16&fill=559bb4') !important;
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
   transition: all 0.3s ease-out !important;
   fill: #777777;
   -webkit-border-radius: 50% !important;
@@ -207,11 +208,11 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Remove Hyperlink"]:hover {
-  background: url('/app/SVG:unlink.svg?size=16&fill=ffffff') !important;
+  background: url('/app/SVG:unlink.svg?size=16&fill=ffffff') space 0 0 !important;
 }
 .ui-editor-button[title="Remove Hyperlink"] > svg {
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
 }
 .ui-editor-button[title="Remove Hyperlink"]:hover {
   background-color: #559bb4 !important;
@@ -220,8 +221,8 @@ p {
 }
 .ui-editor-button[title="Insert Image"] {
   background: url('/app/SVG:image.svg?size=16&fill=559bb4') !important;
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
   transition: all 0.3s ease-out !important;
   fill: #777777;
   -webkit-border-radius: 50% !important;
@@ -238,11 +239,11 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Insert Image"]:hover {
-  background: url('/app/SVG:image.svg?size=16&fill=ffffff') !important;
+  background: url('/app/SVG:image.svg?size=16&fill=ffffff') space 0 0 !important;
 }
 .ui-editor-button[title="Insert Image"] > svg {
-  width: 17px;
-  height: 17px;
+  width: 32px;
+  height: 32px;
 }
 .ui-editor-button[title="Insert Image"]:hover {
   background-color: #559bb4 !important;
@@ -352,13 +353,11 @@ p {
 }
 .ui-editor-popup,
 .ui-editor-prompt {
-  -webkit-border-radius: 1px !important;
-  -moz-border-radius: 1px !important;
-  border-radius: 1px !important;
-  margin-top: 10px;
-  margin-left: -169px;
-  width: 213px;
+  margin-top: 25px;
+  margin-left: -250px;
+  width: 207px;
   border: none !important;
-  background-color: #9cc5d3 !important;
+  background-color: #ffffff !important;
+  border: red 1px solid;
 }
 

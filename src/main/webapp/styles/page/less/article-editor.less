@@ -9,7 +9,7 @@
 @disabledButtonFillColor: @enabledButtonFillColor;
 @focusedButtonFillColor: ffffff;
 @nonFocusedButtonLightness: 20%;
-@toolbarWidth: 222px;
+@toolbarWidth: 216px;
 @baseIconSize: 16;
 @bigIconSize: @baseIconSize + 1;
 @hoverIconSize: @baseIconSize;
@@ -19,7 +19,7 @@
   background-color: transparent !important;
 }
 .ui-editor-toolbar {
-  position: relative; top: -4px;
+  position: relative; top: -4px; margin-bottom: 4px;
   background: none !important;
   background-color: transparent !important;
   height: 32px !important;
@@ -39,7 +39,7 @@
   }
 }
 .ui-editor-button{
-  .uiButton(17px);
+  .uiButton(32px);
   .border-radius(50%) !important;
 
   background-repeat: no-repeat !important;
@@ -65,32 +65,32 @@
 
 .ui-editor-button[title="Bold"]{
   background: url('/app/SVG:bold.svg?size=@{bigIconSize}&fill=@{enabledButtonFillColor}') !important;
-  &:hover{ background: url('/app/SVG:bold.svg?size=@{bigIconSize}&fill=@{focusedButtonFillColor}') !important;}
+  &:hover{ background: url('/app/SVG:bold.svg?size=@{bigIconSize}&fill=@{focusedButtonFillColor}') space 0 0 !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Italic"]{
   background: url('/app/SVG:italic.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
-  &:hover{ background: url('/app/SVG:italic.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
+  &:hover{ background: url('/app/SVG:italic.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') space 0 0 !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Underline"]{
   background: url('/app/SVG:underline.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
-  &:hover{ background: url('/app/SVG:underline.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
+  &:hover{ background: url('/app/SVG:underline.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') space 0 0 !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Insert Hyperlink"]{
   background: url('/app/SVG:link.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
-  &:hover{ background: url('/app/SVG:link.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
+  &:hover{ background: url('/app/SVG:link.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') space 0 0 !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Remove Hyperlink"]{
   background: url('/app/SVG:unlink.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
-  &:hover{ background: url('/app/SVG:unlink.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
+  &:hover{ background: url('/app/SVG:unlink.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') space 0 0 !important;}
   .ui-editor-button;
 }
 .ui-editor-button[title="Insert Image"]{
   background: url('/app/SVG:image.svg?size=@{baseIconSize}&fill=@{enabledButtonFillColor}') !important;
-  &:hover{ background: url('/app/SVG:image.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') !important;}
+  &:hover{ background: url('/app/SVG:image.svg?size=@{hoverIconSize}&fill=@{focusedButtonFillColor}') space 0 0 !important;}
   .ui-editor-button;
 }
 
@@ -141,10 +141,10 @@
 // Dialogs
 
 .ui-editor-popup, .ui-editor-prompt {
-  .border-radius(1px) !important;
-  margin-top: 10px; margin-left: -169px;
+  margin-top: 25px; margin-left: -250px;
   width: @toolbarWidth - 9px;
   border: none !important;
-  background-color: lighten(@mainThemeColor,@nonFocusedButtonLightness) !important;
+  background-color: @mainBGColor !important;
+  border: red 1px solid;
 }
 

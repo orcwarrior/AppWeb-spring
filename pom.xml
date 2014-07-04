@@ -174,12 +174,11 @@
 			<version>4.0.2.GA</version>
 		</dependency>
 		<!-- Test -->
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+        </dependency>
         <!-- Hibernate'n stuff -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
