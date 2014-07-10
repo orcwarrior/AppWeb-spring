@@ -8,7 +8,7 @@
 		Also see ../parent-flow.xml. 
 	-->
 
-	<secured attributes="ROLE_USER" />
+<!--	<secured attributes="ROLE_USER" />-->
 
 	<view-state id="view">
 		<transition on="logout" to="endAndLogout"/>

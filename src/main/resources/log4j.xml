@@ -52,10 +52,10 @@
     </logger>
     <!-- DK: Some hibernate debug-->
     <logger name="org.hibernate.sql">
-        <level value="debug" />
+        <level value="trace" />
     </logger>
     <logger name="org.hibernate.type">
-        <level value="debug" />
+        <level value="trace" />
     </logger>
     <!-- DK: DB Driver -->
     <logger name="com.mysql.jdbc.Driver">
@@ -67,6 +67,13 @@
     <logger name="org.lesscss.mojo">
         <level value="debug"/>
     </logger>
+    <logger name="org.springframework.samples.webflow.security.tools">
+        <level value="trace" />
+    </logger>
+    <logger name="com.mysql.jdbc.Driver">
+        <level value="trace" />
+    </logger>
+
 
 	<!-- Root Logger -->
 	<root>

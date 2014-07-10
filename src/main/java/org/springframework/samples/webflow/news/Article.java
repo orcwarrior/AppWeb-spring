@@ -25,7 +25,7 @@ public class Article {
     private String content;
 
 
-    @JoinColumn(name = "AUTHOR", referencedColumnName = "ID")
+    @JoinColumn(name = "AUTHOR", referencedColumnName = "USERNAME")
     @ManyToOne
     @ForeignKey(name="FK_AUTHOR")
     private User author;
@@ -33,7 +33,7 @@ public class Article {
     @Column(name="CREATED")
     private Timestamp created;
 
-    @JoinColumn(name = "MODIFIED_BY", referencedColumnName = "ID")
+    @JoinColumn(name = "MODIFIED_BY", referencedColumnName = "USERNAME")
     @ManyToOne
     @ForeignKey(name="FK_MODIFIEDBY")
     private User modifiedBy;

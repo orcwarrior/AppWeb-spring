@@ -5,6 +5,7 @@
 	xmlns:faces="http://www.springframework.org/schema/faces"
 	xmlns:context="http://www.springframework.org/schema/context"
     xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
 		http://www.springframework.org/schema/faces http://www.springframework.org/schema/faces/spring-faces-2.4.xsd
@@ -15,7 +16,10 @@
 	<!--
 		DispatcherServlet Context: defines this servlet's request-processing infrastructure
 	-->
-
+    <!-- konfiguracja połacznia z baza przez plik properties -->
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+          p:location="/WEB-INF/spring/properties/jdbc_mysql.properties" />
 	<!-- Imports user-defined @Controller beans that process client requests -->
     <import resource="jdbc-beans.xml" />
 	<import resource="controllers.xml" />

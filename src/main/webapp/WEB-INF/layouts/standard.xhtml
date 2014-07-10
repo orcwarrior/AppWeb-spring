@@ -45,6 +45,13 @@
 	</div>
 	<div>	
 		<ui:insert name="notes"/>
+
+        <h:panelGroup rendered="#{userBean.userService.isLoggedIn() == true}">
+            logged in as: <h:outputText value="#{userBean.userService.username}" />
+        </h:panelGroup>
+        <h:panelGroup rendered="#{userBean.userService.isLoggedIn() != true}">
+            Welcome guest, login maybe?
+        </h:panelGroup>
 	</div>
 	<div class="uiContent" >
 		<ui:insert name="content"/>

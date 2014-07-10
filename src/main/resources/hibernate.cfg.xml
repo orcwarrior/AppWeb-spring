@@ -8,6 +8,6 @@
         <mapping class="org.springframework.samples.webflow.news.Article"/>
         <mapping class="org.springframework.samples.webflow.news.comment.Comment"/>
         <mapping class="org.springframework.samples.webflow.user.User"/>
-        <mapping class="org.springframework.samples.webflow.user.UserRole"/>
+        <mapping class="org.springframework.samples.webflow.user.role.Role"/>
     </session-factory>
 </hibernate-configuration>

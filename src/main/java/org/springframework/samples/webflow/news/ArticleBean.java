@@ -29,9 +29,6 @@ public class ArticleBean implements Serializable{
     public void setArticleDao(ArticleDao articleDao) { this.articleDao = articleDao;}
     public ArticleDao getArticleDao() { return this.articleDao;}
 
-    @ManagedProperty(value = "#{ArticleController}")
-    public ArticleController articleController;
-
     @Inject
     public ArticleService articleService;
 
@@ -70,13 +67,6 @@ public class ArticleBean implements Serializable{
 
 
     // Getters/Setters
-
-    public ArticleController getArticleController() {
-        return articleController;
-    }
-    public void setArticleController(ArticleController articleController) {
-        this.articleController = articleController;
-    }
     public String getArticleTitle() {
         return articleTitle;
     }

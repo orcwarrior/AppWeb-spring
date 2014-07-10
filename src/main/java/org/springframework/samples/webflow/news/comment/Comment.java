@@ -30,7 +30,7 @@ public class Comment {
     @Column(name = "POINTS")
     private int points;
 
-    @JoinColumn(name = "AUTHOR", referencedColumnName = "ID")
+    @JoinColumn(name = "AUTHOR", referencedColumnName = "USERNAME")
     @ManyToOne
     @ForeignKey(name="FK_AUTHOR")
     private User author;

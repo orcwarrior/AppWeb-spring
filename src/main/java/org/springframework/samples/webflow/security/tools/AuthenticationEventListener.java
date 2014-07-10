@@ -25,6 +25,7 @@ public class AuthenticationEventListener implements ApplicationListener<Abstract
         Authentication authentication = authenticationEvent.getAuthentication();
         String auditMessage = "Login attempt with username: " + authentication.getName() + "\t\tSuccess: " + authentication.isAuthenticated()
                             + "details: " + authentication.getDetails();
+
         logger.info(auditMessage);
     }
 
