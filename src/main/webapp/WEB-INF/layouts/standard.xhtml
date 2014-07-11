@@ -33,6 +33,9 @@
 	<ui:insert name="headIncludes"/>
 </h:head>
 <h:body>
+
+    <ui:include src="${request.contextPath}../widgets/user-greet.xhtml" />
+
     <!--DK: Little JS help for resolving request contextPath -->
     <h:outputScript>window.AppRequestContextPath = "<h:outputText value="${request.servletPath}"/>";</h:outputScript>
 <div class="container">
@@ -45,6 +48,7 @@
 	</div>
 	<div>	
 		<ui:insert name="notes"/>
+
 
         <h:panelGroup rendered="#{userBean.userService.isLoggedIn() == true}">
             logged in as: <h:outputText value="#{userBean.userService.username}" />
