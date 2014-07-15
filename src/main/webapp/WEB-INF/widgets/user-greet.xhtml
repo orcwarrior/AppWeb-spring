@@ -1,9 +1,19 @@
+
 <ui:composition
         xmlns="http://www.w3.org/1999/xhtml"
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:ui="http://java.sun.com/jsf/facelets">
+        xmlns:ui="http://java.sun.com/jsf/facelets" >
     <h:outputStylesheet library="widgets" name="/css/global.css" />
     <h2>User Greet</h2>
     <p>widget, very fancy one.</p>
+<ui:remove>
+    <h:panelGroup rendered="#{userBean.userService.isLoggedIn() == true}">
+        logged in as: <h:outputText value="#{userBean.userService.username}" />
+    </h:panelGroup>
+    <h:panelGroup rendered="#{userBean.userService.isLoggedIn() != true}">
+        Welcome guest, login maybe?
+    </h:panelGroup>
+</ui:remove>
+
 </ui:composition>

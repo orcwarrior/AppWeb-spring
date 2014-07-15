@@ -73,6 +73,13 @@
     <logger name="com.mysql.jdbc.Driver">
         <level value="trace" />
     </logger>
+    <logger name="com.sun.faces.context.ExternalContextImpl">
+        <level value="info" />
+    </logger>
+    <logger name="org.springframework.faces.webflow.JsfResourceRequestHandler">
+        <level value="info" />
+    </logger>
+
 
 
 	<!-- Root Logger -->

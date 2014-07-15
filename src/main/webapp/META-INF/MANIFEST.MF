@@ -1,2 +1,27 @@
 Manifest-Version: 1.0
+Class-Path: spring-aop-3.2.8.RELEASE.jar aopalliance-1.0.jar spring-be
+ ans-3.2.8.RELEASE.jar spring-core-3.2.8.RELEASE.jar commons-logging-1
+ .1.1.jar spring-context-3.2.8.RELEASE.jar spring-expression-3.2.8.REL
+ EASE.jar spring-web-3.2.8.RELEASE.jar spring-webmvc-3.2.8.RELEASE.jar
+  spring-binding-2.4.0.RC1.jar ognl-2.6.11.jar spring-js-2.4.0.RC1.jar
+  spring-js-resources-2.4.0.RC1.jar spring-webflow-2.4.0.RC1.jar sprin
+ g-faces-2.4.0.RC1.jar spring-security-core-3.2.0.RELEASE.jar spring-s
+ ecurity-config-3.2.0.RELEASE.jar spring-security-web-3.2.0.RELEASE.ja
+ r spring-security-taglibs-3.2.0.RELEASE.jar spring-security-acl-3.2.0
+ .RELEASE.jar spring-jdbc-3.2.8.RELEASE.jar spring-tx-3.2.8.RELEASE.ja
+ r slf4j-api-1.6.1.jar jcl-over-slf4j-1.6.1.jar slf4j-log4j12-1.6.1.ja
+ r log4j-1.2.16.jar javax.inject-1.jar jstl-1.2.jar jsf-api-2.1.7.jar 
+ jsf-impl-2.1.7.jar commons-fileupload-1.2.1.jar commons-io-2.4.jar va
+ lidation-api-1.0.0.GA.jar hibernate-validator-4.0.2.GA.jar jaxb-api-2
+ .1.jar stax-api-1.0-2.jar activation-1.1.jar jaxb-impl-2.1.3.jar juni
+ t-3.8.1.jar hibernate-jpa-2.0-api-1.0.0.Final.jar hibernate-entityman
+ ager-3.6.10.Final.jar hibernate-core-3.6.10.Final.jar antlr-2.7.6.jar
+  commons-collections-3.1.jar dom4j-1.6.1.jar hibernate-commons-annota
+ tions-3.2.0.Final.jar jta-1.1.jar cglib-2.2.jar asm-3.1.jar javassist
+ -3.12.0.GA.jar hsqldb-2.2.9.jar tomcat-dbcp-8.0.5.jar tomcat-juli-8.0
+ .5.jar derby-10.10.2.0.jar derbyclient-10.10.2.0.jar mysql-connector-
+ java-5.1.6.jar spring-orm-4.0.3.RELEASE.jar lesscss-maven-plugin-1.7.
+ 0.1.1.jar maven-plugin-api-2.0.jar plexus-utils-3.0.jar lesscss-1.7.0
+ .1.1.jar rhino-1.7R4.jar slf4j-simple-1.7.2.jar plexus-build-api-0.0.
+ 7.jar
 

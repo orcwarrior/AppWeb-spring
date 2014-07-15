@@ -52,7 +52,8 @@ function initializeArticleEditor() {
     // These global values if changed before p:edior init are aplied to further p:editor initialization
     jQuery.cleditor.defaultOptions.bodyStyle = "";
     jQuery.cleditor.defaultOptions.width = "100%";
-    jQuery.cleditor.defaultOptions.docCSSFile = "/app/resources/styles/page/article-editor-iframe.css";
+    // NOTE: Unfortunatelly, it has to be hardcoded
+    jQuery.cleditor.defaultOptions.docCSSFile = "/resources/news/1_0/css/article-editor-iframe.css";
 }
 function remakeArticleEditorPrompt() {
 
@@ -112,7 +113,6 @@ function _setupEditorContent(articleID) {
 
 function _changeArticleState(articleID, ARTICLE_STATE) {
     if (ARTICLE_STATE == ARTICLE_STATE_EDIT) {
-
         jQuery(ART_ID_PREFIX + articleID + " h3").attr("contenteditable", "true");
         jQuery(ART_ID_PREFIX + articleID + " .article-content-p").hide();
         jQuery(ART_ID_PREFIX + articleID + " .ui-editor").css("visibility", "visible");

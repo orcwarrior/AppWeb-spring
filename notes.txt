@@ -22,3 +22,23 @@ Problemy
   mocno dynamicznych komponentów HTML, jako rozwiazanie: sprawdzenie co siedzi w komponencie edytora, okazuje się
   że http://premiumsoftware.net/cleditor/ wystarczy zmienić dynamicznie konfiguracje konstruktora edytora
   (jQuery.cleditor.defaultOptions)
+
+* Jako że używanie jsf'owych bibliotek resources wydaje się być dużo bardziej eleganckim i optymalnym rozwiazaniem
+  rozpocząłem migrację do tego rozwiązania, pojawił się jednak problem z mavenowym parserem stylów less który
+  przyjmuje tylko jeden folder źródłowy za argument, a obecnie te pliki znajdują się w wielu folderach.
+  Problem rozwiazany po stronie IDE (InteliJ) stworzenie property dla maven'owego pluginu który odpowiada bibliotece
+  dla której kompilowane będa pliki less, dodatkowo zainstalowany plugin (multirun) który uruchamia je jednocześnie.
+
+* SVGController przestał działać poprawnie po zmianie lokalizacji plików (biblioteki jsf'owe) najbardziej eleganckim
+  sposobem na rozwiązanie tego problemu byłoby pobranie SVG jako resource tak samo jak jest to robione w przypadku
+  gdy pobierane są faktyczne resource z widoku, jednak nie znalazłem sposobu na stworzenie odpowiedniego FacesContext
+  (nie jest on osiągalny jako że nie jest to wywołanie jsf'owe a springowe) a stworzenie takiego kontekstu wymaga stworzenia
+  odpowiedniego HttpServletRequest, nie znalazłem rozwiązania tego problemu.
+  Problem rozwiazany w inny mniej elegancki sposób, poprostu sam odnajduję odpowiedni katalog przez wskazanie parametrami
+  GET biblioteki i wersji (jeśli wersja nie jest wskazana, wybierana jest najnowsza).
+
+* Pojawił się problem z edycją artykułów kolejnych niż pierwszy artykuł w podglądzie newsów, jak się okazało było to
+  spowodowane wstawianiem komponentu edytora newsów w kolejnych newsach w innym miejscu drzewa html niż powinny się one
+  znajdować, przyczyną wszystko był fakt iż przy tworzeniu nowej bazy dla wielu dlugich pól tekstowych użyty został typ
+  VARCHAR(255) co po importcie starych danych obcinało je wraz z tagami domykającymi divy (oczywiscie problem był szukany
+  we wszelkich możliwych, innych miejscach :) )

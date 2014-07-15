@@ -65,7 +65,7 @@ p {
   background-position: center !important;
 }
 .ui-editor-button[title="Bold"] {
-  background: url('/app/SVG:bold.svg?size=17&fill=559bb4') !important;
+  background: url('/app/SVG/img/bold.svg?size=17&fill=559bb4&lib=news') !important;
   width: 32px;
   height: 32px;
   transition: all 0.3s ease-out !important;
@@ -84,7 +84,7 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Bold"]:hover {
-  background: url('/app/SVG:bold.svg?size=17&fill=ffffff') space 0 0 !important;
+  background: url('/app/SVG/img/bold.svg?size=17&fill=ffffff&lib=news') space 0 0 !important;
 }
 .ui-editor-button[title="Bold"] > svg {
   width: 32px;
@@ -96,7 +96,7 @@ p {
   background-position: center !important;
 }
 .ui-editor-button[title="Italic"] {
-  background: url('/app/SVG:italic.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/italic.svg?size=16&fill=559bb4&lib=news') !important;
   width: 32px;
   height: 32px;
   transition: all 0.3s ease-out !important;
@@ -115,7 +115,7 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Italic"]:hover {
-  background: url('/app/SVG:italic.svg?size=16&fill=ffffff') space 0 0 !important;
+  background: url('/app/SVG/img/italic.svg?size=16&fill=ffffff&lib=news') space 0 0 !important;
 }
 .ui-editor-button[title="Italic"] > svg {
   width: 32px;
@@ -127,7 +127,7 @@ p {
   background-position: center !important;
 }
 .ui-editor-button[title="Underline"] {
-  background: url('/app/SVG:underline.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/underline.svg?size=16&fill=559bb4&lib=news') !important;
   width: 32px;
   height: 32px;
   transition: all 0.3s ease-out !important;
@@ -146,7 +146,7 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Underline"]:hover {
-  background: url('/app/SVG:underline.svg?size=16&fill=ffffff') space 0 0 !important;
+  background: url('/app/SVG/img/underline.svg?size=16&fill=ffffff&lib=news') space 0 0 !important;
 }
 .ui-editor-button[title="Underline"] > svg {
   width: 32px;
@@ -158,7 +158,7 @@ p {
   background-position: center !important;
 }
 .ui-editor-button[title="Insert Hyperlink"] {
-  background: url('/app/SVG:link.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/link.svg?size=16&fill=559bb4&lib=news') !important;
   width: 32px;
   height: 32px;
   transition: all 0.3s ease-out !important;
@@ -177,7 +177,7 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Insert Hyperlink"]:hover {
-  background: url('/app/SVG:link.svg?size=16&fill=ffffff') space 0 0 !important;
+  background: url('/app/SVG/img/link.svg?size=16&fill=ffffff&lib=news') space 0 0 !important;
 }
 .ui-editor-button[title="Insert Hyperlink"] > svg {
   width: 32px;
@@ -189,7 +189,7 @@ p {
   background-position: center !important;
 }
 .ui-editor-button[title="Remove Hyperlink"] {
-  background: url('/app/SVG:unlink.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/unlink.svg?size=16&fill=559bb4&lib=news') !important;
   width: 32px;
   height: 32px;
   transition: all 0.3s ease-out !important;
@@ -208,7 +208,7 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Remove Hyperlink"]:hover {
-  background: url('/app/SVG:unlink.svg?size=16&fill=ffffff') space 0 0 !important;
+  background: url('/app/SVG/img/unlink.svg?size=16&fill=ffffff&lib=news') space 0 0 !important;
 }
 .ui-editor-button[title="Remove Hyperlink"] > svg {
   width: 32px;
@@ -220,7 +220,7 @@ p {
   background-position: center !important;
 }
 .ui-editor-button[title="Insert Image"] {
-  background: url('/app/SVG:image.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/image.svg?size=16&fill=559bb4&lib=news') !important;
   width: 32px;
   height: 32px;
   transition: all 0.3s ease-out !important;
@@ -239,7 +239,7 @@ p {
   border: 2px solid #559bb4 !important;
 }
 .ui-editor-button[title="Insert Image"]:hover {
-  background: url('/app/SVG:image.svg?size=16&fill=ffffff') space 0 0 !important;
+  background: url('/app/SVG/img/image.svg?size=16&fill=ffffff&lib=news') space 0 0 !important;
 }
 .ui-editor-button[title="Insert Image"] > svg {
   width: 32px;
@@ -262,14 +262,14 @@ p {
   background-position: center !important;
 }
 .ui-editor-disabled[title="Bold"] {
-  background: url('/app/SVG:bold.svg?size=17&fill=559bb4') !important;
+  background: url('/app/SVG/img/bold.svg?size=17&fill=559bb4&lib=news') !important;
   opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-color: transparent;
 }
 .ui-editor-disabled[title="Bold"]:hover {
-  background: url('/app/SVG:bold.svg?size=17&fill=559bb4') !important;
+  background: url('/app/SVG/img/bold.svg?size=17&fill=559bb4&lib=news') !important;
 }
 .ui-editor-disabled[title="Bold"]:hover {
   background-color: transparent !important;
@@ -277,14 +277,14 @@ p {
   background-position: center !important;
 }
 .ui-editor-disabled[title="Italic"] {
-  background: url('/app/SVG:italic.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/italic.svg?size=16&fill=559bb4&lib=news') !important;
   opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-color: transparent;
 }
 .ui-editor-disabled[title="Italic"]:hover {
-  background: url('/app/SVG:italic.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/italic.svg?size=16&fill=559bb4&lib=news') !important;
 }
 .ui-editor-disabled[title="Italic"]:hover {
   background-color: transparent !important;
@@ -292,14 +292,14 @@ p {
   background-position: center !important;
 }
 .ui-editor-disabled[title="Underline"] {
-  background: url('/app/SVG:underline.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/underline.svg?size=16&fill=559bb4&lib=news') !important;
   opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-color: transparent;
 }
 .ui-editor-disabled[title="Underline"]:hover {
-  background: url('/app/SVG:underline.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/underline.svg?size=16&fill=559bb4&lib=news') !important;
 }
 .ui-editor-disabled[title="Underline"]:hover {
   background-color: transparent !important;
@@ -307,14 +307,14 @@ p {
   background-position: center !important;
 }
 .ui-editor-disabled[title="Insert Hyperlink"] {
-  background: url('/app/SVG:link.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/link.svg?size=16&fill=559bb4&lib=news') !important;
   opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-color: transparent;
 }
 .ui-editor-disabled[title="Insert Hyperlink"]:hover {
-  background: url('/app/SVG:link.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/link.svg?size=16&fill=559bb4&lib=news') !important;
 }
 .ui-editor-disabled[title="Insert Hyperlink"]:hover {
   background-color: transparent !important;
@@ -322,14 +322,14 @@ p {
   background-position: center !important;
 }
 .ui-editor-disabled[title="Remove Hyperlink"] {
-  background: url('/app/SVG:unlink.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/unlink.svg?size=16&fill=559bb4&lib=news') !important;
   opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-color: transparent;
 }
 .ui-editor-disabled[title="Remove Hyperlink"]:hover {
-  background: url('/app/SVG:unlink.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/unlink.svg?size=16&fill=559bb4&lib=news') !important;
 }
 .ui-editor-disabled[title="Remove Hyperlink"]:hover {
   background-color: transparent !important;
@@ -337,14 +337,14 @@ p {
   background-position: center !important;
 }
 .ui-editor-disabled[title="Insert Image"] {
-  background: url('/app/SVG:image.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/image.svg?size=16&fill=559bb4&lib=news') !important;
   opacity: 0.5 !important;
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-color: transparent;
 }
 .ui-editor-disabled[title="Insert Image"]:hover {
-  background: url('/app/SVG:image.svg?size=16&fill=559bb4') !important;
+  background: url('/app/SVG/img/image.svg?size=16&fill=559bb4&lib=news') !important;
 }
 .ui-editor-disabled[title="Insert Image"]:hover {
   background-color: transparent !important;
