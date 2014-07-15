@@ -6,8 +6,25 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/layouts/standard.xhtml">
-    News
-    <ui:define name="title">News page</ui:define>
+
+    <!--  HEAD  -->
+    <ui:define name="headIncludes">
+        <!--  Includes Scripts/CSS  -->
+        <h:outputScript library="news" name="js/article.js"/>
+        <h:outputScript library="plugins" name="js/modernizr.custom.38720.js"/>
+        <h:outputScript library="plugins" name="js/classie.js"/>
+        <h:outputScript library="plugins" name="js/coodrops.stepsForm.js"/>
+
+        <h:outputStylesheet library="news" name="css/article.css"/>
+        <h:outputStylesheet library="news" name="css/article-editor.css"/>
+        <h:outputStylesheet library="news" name="css/article-editor-iframe.css"/>
+        <h:outputStylesheet library="plugins" name="css/minimal-form.css"/>
+    </ui:define>
+    <!--  BODY  -->
+    <ui:define name="title">
+
+        News page
+    </ui:define>
 
     <ui:define name="content">
         <script type="text/javascript">
@@ -23,18 +40,18 @@
         <p:dataScroller value="#{articleBean.articles}" var="a" chunkSize="4">
             <fieldset>
                 <div id="article_#{a.id}" class="article-wrapper">
-                    <a class="article-edit-button" href="javascript:editArticle(#{a.id});"
-                       update="articleContentEditor#{a.id}">
-                        <ui:include src="../../../img/ui/cog.svg"/>
+                    <a class="article-edit-button" href="javascript:editArticle(#{a.id})" >
+                        <!--TODO: Use SVG Controller (in css style)-->
+                        <ui:include src="../../../resources/news/1_0/img/cog.svg"/>
                     </a>
                     <h:form id="articleForm">
                         <h:commandLink class="article-editAprove-button" action="modifyArticle"
                                        onclick="javascript:finishArticleEditing(#{a.id});">
-                            <f:ajax execute="@form" render="@form" />
+                            <f:ajax execute="@form" render="@form"/>
                             <f:param name="articleID" value="#{a.id}"/>
-                            <ui:include src="../../../img/ui/checkmark.svg"/>
+                            <!--TODO: Use SVG Controller (css style)-->
+                            <ui:include src="../../../resources/news/1_0/img/checkmark.svg"/>
                         </h:commandLink>
-
                         <!--Values here will be auto-completed by js
                             and sent to backing bean with request-->
                         <h:inputHidden id="articleTitle" type="hidden" name="articleTitle"
@@ -43,24 +60,22 @@
                         <h3 class="article-title alt">#{a.title}</h3>
 
                         <div class="article-contentAndEditor-wrapper">
-                            <div class="article-content-p"><h:outputText value="#{a.content}" escape="false" /></div>
+                            <div class="article-content-p">
+                                <h:outputText value="#{a.content}" escape="false" />
+                            </div>
                             <p:editor id="articleContentEditor#{a.id}" widgetVar="articleEditorWidget#{a.id}"
                                       controls="bold italic underline link unlink image"
                                       value="#{articleBean.articleContent}"
-                                      onchange="updateEditorHeight(#{a.id})">
-                            </p:editor>
+                                      onchange="updateEditorHeight(#{a.id})" />
                         </div>
                         <script type="text/javascript">
-                        jQuery(document).ready(function () {
-                            setupEditorIframeID(#{a.id});
-                            updateEditorHeight(#{a.id});
-                            adaptNewsContentAndEditorSizes(#{a.id});
-                            // DK: When images are loaded sizes need's to be recalculated
-                            jQuery(".article-content-p img").load(
-                                    function() {
-                                        adaptNewsContentAndEditorSizes(#{a.id});
-                                    });
-                        });
+                            jQuery(document).ready(function () {
+                                setupEditorIframeID(#{a.id});
+                                updateEditorHeight(#{a.id});
+                                adaptNewsContentAndEditorSizes(#{a.id});
+                                // DK: When images are loaded sizes need's to be recalculated
+                                jQuery(".article-content-p img").load( adaptNewsContentAndEditorSizes(#{a.id}) );
+                            });
                         </script>
                     </h:form>
 
