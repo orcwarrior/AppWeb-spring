@@ -2,6 +2,7 @@ package org.springframework.samples.webflow.security.tools;
 
 import org.springframework.context.ApplicationListener;
 import org.springframework.security.authentication.event.AbstractAuthenticationEvent;
+import org.springframework.security.authentication.event.AuthenticationSuccessEvent;
 import org.springframework.security.authentication.event.InteractiveAuthenticationSuccessEvent;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
@@ -19,14 +20,15 @@ public class AuthenticationEventListener implements ApplicationListener<Abstract
     @Override
     public void onApplicationEvent(AbstractAuthenticationEvent authenticationEvent) {
         if (authenticationEvent instanceof InteractiveAuthenticationSuccessEvent) {
-            // ignores to prevent duplicate logging with AuthenticationSuccessEvent
-            return;
+            // Authentication success:
         }
-        Authentication authentication = authenticationEvent.getAuthentication();
-        String auditMessage = "Login attempt with username: " + authentication.getName() + "\t\tSuccess: " + authentication.isAuthenticated()
-                            + "details: " + authentication.getDetails();
+        else {
+            Authentication authentication = authenticationEvent.getAuthentication();
+            String auditMessage = "Login attempt with username: " + authentication.getName() + "\t\tSuccess: " + authentication.isAuthenticated()
+                    + "details: " + authentication.getDetails();
 
-        logger.info(auditMessage);
+            logger.info(auditMessage);
+        }
     }
 
 }

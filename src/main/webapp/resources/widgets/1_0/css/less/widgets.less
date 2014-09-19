@@ -1,0 +1,114 @@
+@import "../../../../default/1_0/css/less/global";
+@import "../../../../default/1_0/css/less/buttons.less";
+
+@bigWidgetIconSize: 52;
+@smallWidgetIconSize: 24;
+
+@colorButtonRegister: #98a4b3;
+@colorButtonLogin: #84b37d;
+
+.widget-greet-body {
+  display: block; // for sliding down in jQuery
+  background-color: darken(@mainThemeColor, 20%);
+
+  position: fixed;
+  z-index: 3;
+  top: 0.25em; left  : 0.25em;
+  text-align: center;
+  padding-bottom: 0.5em;
+
+  width: auto; // for css animation
+  height: 125px;
+  & h2 {
+    display: inline;
+    font-family: 'roboto-light';
+    font-size: 1.5em;
+    color: darken(@brightFontColor,10%);
+    margin-bottom: 0;
+    line-height: 1em;
+  }
+
+  & .widget-greet-innerwrapper{
+    padding: 0.5em 1em;
+    margin: 0;
+    //padding-bottom: 0em;
+  }
+}
+
+.widget-greet-min{
+  .widget-greet-body;
+  display: block;
+  width: 180px; height: 35px;
+  padding-bottom: 0em;
+  & .button-register, & .button-login, & .widget-greet-spacer{
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+    overflow: hidden;
+  }
+  & .widget-greet-innerwrapper{
+    padding: 0.2em 0.5em;
+    margin: 0;
+    //padding-bottom: 0em;
+  }
+
+}
+
+h2.widget-greet-captions-min{
+  font-size: 1em;
+  line-height: 1em;
+}
+
+span.widget-greet-icon-min{
+  width: unit(@smallWidgetIconSize, px);
+  height: unit(@smallWidgetIconSize, px);
+  // background: url('/app/SVG/img/user.svg?size=@{smallWidgetIconSize}&fill=@{brightFontColorStr}&lib=widgets') !important;
+}
+.widget-greet-innerwrapper {
+  display: inline-block;
+//  border: 2px solid @mainThemeColor;
+  width: auto; height: auto;
+  text-align: left;
+}
+
+.widget-greet-buttonsWrapper{
+ overflow: hidden;
+  height: 40px;
+}
+div.widget-greet-buttonsWrapper-min, div.widget-greet-spacer-min{
+  //width: 50px;
+  height: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.widget-greet-icon{
+  vertical-align: bottom;
+  margin-right: 0.5em; margin-bottom: 0.2em;
+  width: unit(@bigWidgetIconSize, px);
+  height: unit(@bigWidgetIconSize, px);
+  display: inline-block;
+  background: url('/app/SVG/img/user.svg?size=100%25&fill=@{brightFontColorStr}&lib=widgets');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.widget-buttons-base{
+  clear: none;
+  display: inline !important;
+  position: relative;
+  //position: relative; top: 1em;
+}
+.widget-greet-spacer{
+  width: 100%;
+  height: 0.5em;
+  display: block;
+}
+.button-register{
+  .button-flat-base(@colorButtonRegister) !important;
+  .widget-buttons-base;
+}
+.button-login{
+  .button-flat-base(@colorButtonLogin) !important;
+  .widget-buttons-base;
+}

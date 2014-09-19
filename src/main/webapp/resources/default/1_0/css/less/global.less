@@ -1,23 +1,44 @@
 /*
   Created by Dariusz on 2014-06-08.
 */
-
+@import "fonts";
 /*variables:*/
 @transitionTime: 0.3s;
 @iconColor: #777;
 @mainThemeColor: #559bb4;
 @defaultFontColor: #444;
+@alternativeAccentFontColor: #594760;
+@brightFontColor: lighten(@mainThemeColor, 60%);
+@_brightFontColorStr: %("%a", @brightFontColor);
+@brightFontColorStr: replace(@_brightFontColorStr, '#', '');
+
 @mainBGColor: #fff;
+
 body {
   font-size: 1.2em !important; /*DK Scale-up font for a little*/
+  overflow-y: auto !important;
 }
+
+*,
+*:after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 p {
   color: @defaultFontColor;
   line-height: 1.5em;
 }
-.ui-datascroller-content, .ui-widget-content{
+.font-smoothing{
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+.ui-datascroller-content, .ui-widget-content {
   border: 0;
 }
+
 .border-radius(@radius) {
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
@@ -32,6 +53,7 @@ p {
   -moz-border-top-left-radius: @radius;
   border-bottom-top-radius: @radius;
 }
+
 .border-radius-lastRight(@radius) {
   // -webkit-border-bottom-right-radius: @radius;
   // -moz-border-bottom-right-radius: @radius;
@@ -54,4 +76,15 @@ p {
   -moz-transition: @value;
   transition: @value;
 }
-
+.transform(@string){
+  -webkit-transform: @string;
+  -moz-transform: 	 @string;
+  -ms-transform: 		 @string;
+  -o-transform: 		 @string;
+}
+.transform-origin (@x:center, @y:center) {
+  -webkit-transform-origin: @x @y;
+  -moz-transform-origin:    @x @y;
+  -ms-transform-origin:     @x @y;
+  -o-transform-origin:      @x @y;
+}

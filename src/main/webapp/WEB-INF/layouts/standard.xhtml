@@ -12,16 +12,21 @@
 
     <!--  HEAD  -->
     <h:outputScript library="default" name="js/global.js" />
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js"></script>
+
     <h:outputStylesheet library="default" name="css/global.css" />
+
     <!-- NOTE: Converting those plain html tags into jsf, causes errors in displaying-->
     <link rel="stylesheet" href="${request.contextPath}/resources/blueprint/1_0/css/screen.css" type="text/css" media="screen, projection" />
 	<link rel="stylesheet" href="${request.contextPath}/resources/blueprint/1_0/css/print.css" type="text/css" media="print" />
+
 	<!--[if lt IE 8]>
 		<link rel="stylesheet" href="${request.servletPath}/resources/blueprint/1_0/css/ie.css" type="text/css" media="screen, projection" />
 	<![endif]-->
 	<ui:insert name="headIncludes"/>
 </h:head>
 <h:body>
+    <!-- Widgets (Widgets loaded at end has much more smoother animation) -->
     <ui:include src="${request.contextPath}../widgets/user-greet.xhtml" />
 
     <!--DK: Little JS help for resolving request contextPath -->

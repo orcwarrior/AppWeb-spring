@@ -8,7 +8,7 @@
 		Also see ../parent-flow.xml. 
 	-->
 
-	<var name="userBean" class="org.springframework.samples.webflow.ajax.UserBean" />
+	<var name="userBean" class="org.springframework.samples.webflow.user.UserBean" />
     <var name="articleBean" class="org.springframework.samples.webflow.news.ArticleBean" />
 
 	<view-state id="view">

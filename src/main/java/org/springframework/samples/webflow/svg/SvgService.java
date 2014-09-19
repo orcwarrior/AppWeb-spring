@@ -33,7 +33,6 @@ public class SvgService {
         //C:\Users\orcwarrior\InteliJ Projects\AppWeb-spring\src\main\webapp\resources\news\1_0\img\bold.svgName
         // String requestURI = "/app/javax.faces.resource" + uri.getPath() + (uri.getLibrary().isEmpty() ? "" : ("?In=" + url.get));
 
-        Set resourcePaths = servletContext.getResourcePaths("/cog.svg");
         String contextPath = servletContext.getContextPath();
         String svgPath = getSVGPath(contextPath, uri.getPath(),uri.getLibrary(),uri.getVersion());
         InputStream inStream = servletContext.getResourceAsStream(svgPath);
@@ -42,7 +41,7 @@ public class SvgService {
         StringWriter writer = new StringWriter();
         IOUtils.copy(inStream, writer, "UTF8");
         String processedSvg = writer.toString();
-        processedSvg = setupSvgSize(processedSvg,uri.getSize());
+        processedSvg = setupSvgSize(processedSvg,uri.getSize(), uri.getSizeStr());
         processedSvg = setupSvgFill(processedSvg, uri.getFill());
         logger.info("Generate SVG, fill: "+ uri.getFill() + ", Size: "+ uri.getSize());
         return processedSvg;
@@ -55,11 +54,15 @@ public class SvgService {
         return processedSvg;
     }
 
-    private String setupSvgSize(String input, Integer size)
+    private String setupSvgSize(String input, Integer size, String sizeStr)
     {
             Pattern p = Pattern.compile("(<svg.*?width=\")(.*?)(\".*?height=\")(.*?)(\".*?>)");
             Matcher m = p.matcher(input);
-            String out = m.replaceFirst("$1" + size.toString() + "$3" + size.toString() + "$5");
+            String out;
+            if (sizeStr.contains("%"))
+                out = m.replaceFirst("$1" + sizeStr + "$3" + sizeStr+ "$5");
+            else
+                out = m.replaceFirst("$1" + size.toString() + "$3" + size.toString() + "$5");
             return out.toString();
     }
 

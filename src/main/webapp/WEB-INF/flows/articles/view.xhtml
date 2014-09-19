@@ -17,7 +17,6 @@
 
         <h:outputStylesheet library="news" name="css/article.css"/>
         <h:outputStylesheet library="news" name="css/article-editor.css"/>
-        <h:outputStylesheet library="news" name="css/article-editor-iframe.css"/>
         <h:outputStylesheet library="plugins" name="css/minimal-form.css"/>
     </ui:define>
     <!--  BODY  -->
@@ -57,7 +56,7 @@
                         <h:inputHidden id="articleTitle" type="hidden" name="articleTitle"
                                        value="#{articleBean.articleTitle}"/>
 
-                        <h3 class="article-title alt">#{a.title}</h3>
+                        <h3 class="article-title">#{a.title}</h3>
 
                         <div class="article-contentAndEditor-wrapper">
                             <div class="article-content-p">

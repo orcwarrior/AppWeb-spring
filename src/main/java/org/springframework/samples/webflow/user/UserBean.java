@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
+import java.io.Serializable;
 
 /**
  * Created by orcwarrior on 2014-07-09.
@@ -15,7 +16,7 @@ import javax.inject.Inject;
 @Component
 @ManagedBean(name = "userBean")
 @ViewScoped
-public class UserBean {
+public class UserBean implements Serializable {
 
     @Inject
     public UserService userService;

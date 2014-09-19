@@ -62,18 +62,21 @@ public class SvgController {
         protected String path;
         protected String fill;
         protected int size;
+
+
+        protected String sizeStr; // for percentages size inputs
         protected String library;
         protected String version;
 
         public SvgURIParser(HttpServletRequest request) {
-            String sizeStr;
             path = request.getPathInfo().substring(SvgController.SVG_PREFIX.length());
 
             fill = request.getParameter("fill");
             if (fill == null) fill = SVG_FILL_DEFAULT;
 
             sizeStr = request.getParameter("size");
-            size = (sizeStr == null) ? SVG_SIZE_DEFAULT : Integer.valueOf(sizeStr);
+            if( !sizeStr.contains("%"))
+                size = (sizeStr == null) ? SVG_SIZE_DEFAULT : Integer.valueOf(sizeStr);
 
             library = request.getParameter("lib");
             if (library == null) library = SVG_LIBRARY_DEFAULT;
@@ -92,6 +95,7 @@ public class SvgController {
             return library;
         }
         public int getSize() { return size; }
+        public String getSizeStr() { return sizeStr;  }
         public String getVersion() { return version; }
     }
 
