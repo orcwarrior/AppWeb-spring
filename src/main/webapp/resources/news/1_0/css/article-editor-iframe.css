@@ -4,14 +4,182 @@
 /*
   Created by Dariusz on 2014-06-08.
 */
+@font-face {
+  font-family: 'robotocondensed-italic';
+  src: url('/resources/default/1_0/fonts/robotocondensed-italic.woff') format('woff'), url('/resources/default/1_0/fonts/robotocondensed-italic.ttf') format('truetype'), url('/resources/default/1_0/fonts/robotocondensed-italic.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'robotocondensed-italic';
+    src: url('/resources/default/1_0/fonts/robotocondensed-italic.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'robotocondensed-bold';
+  src: url('/resources/default/1_0/fonts/robotocondensed-bold.woff') format('woff'), url('/resources/default/1_0/fonts/robotocondensed-bold.ttf') format('truetype'), url('/resources/default/1_0/fonts/robotocondensed-bold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'robotocondensed-bold';
+    src: url('/resources/default/1_0/fonts/robotocondensed-bold.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'roboto-black';
+  src: url('/resources/default/1_0/fonts/roboto-black.woff') format('woff'), url('/resources/default/1_0/fonts/roboto-black.ttf') format('truetype'), url('/resources/default/1_0/fonts/roboto-black.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'roboto-black';
+    src: url('/resources/default/1_0/fonts/roboto-black.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'roboto-light';
+  src: url('/resources/default/1_0/fonts/roboto-light.woff') format('woff'), url('/resources/default/1_0/fonts/roboto-light.ttf') format('truetype'), url('/resources/default/1_0/fonts/roboto-light.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'roboto-light';
+    src: url('/resources/default/1_0/fonts/roboto-light.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'robotocondensed-regular';
+  src: url('/resources/default/1_0/fonts/robotocondensed-regular.woff') format('woff'), url('/resources/default/1_0/fonts/robotocondensed-regular.ttf') format('truetype'), url('/resources/default/1_0/fonts/robotocondensed-regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'robotocondensed-regular';
+    src: url('/resources/default/1_0/fonts/robotocondensed-regular.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'robotocondensed-light';
+  src: url('/resources/default/1_0/fonts/robotocondensed-light.woff') format('woff'), url('/resources/default/1_0/fonts/robotocondensed-light.ttf') format('truetype'), url('/resources/default/1_0/fonts/robotocondensed-light.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'robotocondensed-light';
+    src: url('/resources/default/1_0/fonts/robotocondensed-light.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'roboto-italic';
+  src: url('/resources/default/1_0/fonts/roboto-italic.woff') format('woff'), url('/resources/default/1_0/fonts/roboto-italic.ttf') format('truetype'), url('/resources/default/1_0/fonts/roboto-italic.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'roboto-italic';
+    src: url('/resources/default/1_0/fonts/roboto-italic.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'roboto-medium';
+  src: url('/resources/default/1_0/fonts/roboto-medium.woff') format('woff'), url('/resources/default/1_0/fonts/roboto-medium.ttf') format('truetype'), url('/resources/default/1_0/fonts/roboto-medium.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'roboto-medium';
+    src: url('/resources/default/1_0/fonts/roboto-medium.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'roboto-lightitalic';
+  src: url('/resources/default/1_0/fonts/roboto-lightitalic.woff') format('woff'), url('/resources/default/1_0/fonts/roboto-lightitalic.ttf') format('truetype'), url('/resources/default/1_0/fonts/roboto-lightitalic.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'roboto-lightitalic';
+    src: url('/resources/default/1_0/fonts/roboto-lightitalic.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'roboto-thin';
+  src: url('/resources/default/1_0/fonts/roboto-thin.woff') format('woff'), url('/resources/default/1_0/fonts/roboto-thin.ttf') format('truetype'), url('/resources/default/1_0/fonts/roboto-thin.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'roboto-thin';
+    src: url('/resources/default/1_0/fonts/roboto-thin.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'roboto-regular';
+  src: url('/resources/default/1_0/fonts/roboto-regular.woff') format('woff'), url('/resources/default/1_0/fonts/roboto-regular.ttf') format('truetype'), url('/resources/default/1_0/fonts/roboto-regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'roboto-regular';
+    src: url('/resources/default/1_0/fonts/roboto-regular.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'roboto-regular';
+  src: url('/resources/default/1_0/fonts/roboto-regular.woff') format('woff'), url('/resources/default/1_0/fonts/roboto-regular.ttf') format('truetype'), url('/resources/default/1_0/fonts/roboto-regular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'roboto-regular';
+    src: url('/resources/default/1_0/fonts/roboto-regular.svg') format('svg');
+  }
+}
+@font-face {
+  font-family: 'roboto-thinitalic';
+  src: url('/resources/default/1_0/fonts/roboto-thinitalic.woff') format('woff'), url('/resources/default/1_0/fonts/roboto-thinitalic.ttf') format('truetype'), url('/resources/default/1_0/fonts/roboto-thinitalic.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  @font-face {
+    font-family: 'roboto-thinitalic';
+    src: url('/resources/default/1_0/fonts/roboto-thinitalic.svg') format('svg');
+  }
+}
 /*variables:*/
 body {
   font-size: 1.2em !important;
   /*DK Scale-up font for a little*/
+  overflow-y: auto !important;
+}
+*,
+*:after,
+*::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 p {
   color: #444444;
   line-height: 1.5em;
+}
+.font-smoothing {
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
 }
 .ui-datascroller-content,
 .ui-widget-content {

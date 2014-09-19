@@ -4,8 +4,10 @@ import org.springframework.binding.message.MessageBuilder;
 import org.springframework.util.StringUtils;
 import org.springframework.webflow.execution.RequestContext;
 
+import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
 
+@ManagedBean(name = "ajaxUserBean")
 public class UserBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
