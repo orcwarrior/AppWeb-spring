@@ -71,7 +71,8 @@ public abstract class AbstractFacesServlet extends HttpServlet {
         return facesContext.getApplication();
     }
     protected Object getManagedBean(String beanName, FacesContext facesContext) {
-        return getApplication(facesContext).getVariableResolver().resolveVariable(facesContext, beanName);
+        return null;
+        //return getApplication(facesContext).getVariableResolver().resolveVariable(facesContext, beanName);
     }
     // You need an inner class to be able to call FacesContext.setCurrentInstance
     // since it's a protected method
