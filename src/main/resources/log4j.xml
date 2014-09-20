@@ -54,6 +54,9 @@
     <logger name="org.hibernate.sql">
         <level value="trace" />
     </logger>
+    <logger name="org.hibernate.impl.SessionFactoryImpl">
+        <level value="trace" />
+    </logger>
     <logger name="org.hibernate.type">
         <level value="trace" />
     </logger>

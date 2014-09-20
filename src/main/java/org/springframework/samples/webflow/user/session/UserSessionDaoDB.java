@@ -1,6 +1,5 @@
 package org.springframework.samples.webflow.user.session;
 
-import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.webflow.user.User;
@@ -9,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 /**
  * Created by orcwarrior on 2014-09-18.
@@ -21,21 +21,17 @@ public class UserSessionDaoDB implements UserSessionDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public UserSession getSessionByUUID(UUID uuid) {
+    public UserSession getSessionByUUID(String uuid) {
         return (UserSession) sessionFactory.getCurrentSession().load(UserSession.class, uuid);
     }
 
-    //@Query("SELECT t FROM Token t WHERE LOWER(t.user) = LOWER(:user)")
-    //public Token find(@Param("user") String user);
     @Override
     public UserSession getSessionByUser(User user) {
-
-        Query query = sessionFactory.getCurrentSession().createQuery("SELECT us from user_sessions WHERE us.user LIKE :userid")
-                .setParameter("userid", user.getId());
-        List queryResults = query.list();
-        if (queryResults.size()==1)
-            return (UserSession) queryResults.get(0);
-        return null;
+        List<UserSession> userSessions = sessionFactory.getCurrentSession().createQuery("from UserSession us where us.user.id = :user_id").setParameter("user_id", user.getId()).list();
+        if (userSessions.isEmpty())
+            return null;
+        else
+            return userSessions.get(0);
     }
 
     @Override
@@ -48,5 +44,11 @@ public class UserSessionDaoDB implements UserSessionDao {
     public boolean deleteSession(UserSession userSession) {
         sessionFactory.getCurrentSession().delete(userSession);
         return true;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Transactional
+    protected List<UserSession> getUserSessions() {
+        return sessionFactory.getCurrentSession().createQuery("from UserSession ").list();
     }
 }

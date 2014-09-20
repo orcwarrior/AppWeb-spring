@@ -19,23 +19,23 @@ public enum RESTOperation {
     /* article basic */
     @SerializedName("RESTOperation.getArticles")
     getArticles,
-    @SerializedName("RESTOperation.getArticles")
+    @SerializedName("RESTOperation.getArticleFull")
     getArticleFull,
-    @SerializedName("RESTOperation.getArticles")
+    @SerializedName("RESTOperation.getArticleComments")
     getArticleComments,
-    @SerializedName("RESTOperation.getArticles")
+    @SerializedName("RESTOperation.favoriteArticle")
     favoriteArticle,
     /* article modifications */
-    @SerializedName("RESTOperation.getArticles")
+    @SerializedName("RESTOperation.editArticle")
     editArticle,
-    @SerializedName("RESTOperation.getArticles")
+    @SerializedName("RESTOperation.deleteArticle")
     deleteArticle,
-    @SerializedName("RESTOperation.getArticles")
+    @SerializedName("RESTOperation.createArticle")
     createArticle,
     /* comments */
-    @SerializedName("RESTOperation.getArticles")
+    @SerializedName("RESTOperation.addComment")
     addComment,
-    @SerializedName("RESTOperation.getArticles")
+    @SerializedName("RESTOperation.deleteComment")
     deleteComment
 
 }

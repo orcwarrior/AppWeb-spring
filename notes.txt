@@ -42,3 +42,11 @@ Problemy
   znajdować, przyczyną wszystko był fakt iż przy tworzeniu nowej bazy dla wielu dlugich pól tekstowych użyty został typ
   VARCHAR(255) co po importcie starych danych obcinało je wraz z tagami domykającymi divy (oczywiscie problem był szukany
   we wszelkich możliwych, innych miejscach :) )
+
+  // ( Po wakacjach )
+
+* Wyjątek przy starcie serwera:
+  'Error creating bean with name 'articleDaoDB'' => 'Error creating bean with name 'sessionFactory'' => 'No Dialect mapping for JDBC type: -2' kompletnie nic na stosie
+  nie wskazywało na faktyczny błąd, oczekiwałem że źle zrobiłem mapowanie one-to-one, dopiero po mozolnym debugowaniu okazało się ze hibernate w danej wersji ma problem
+  z tworzeniem pól typu java.util.UUID, dodatkowa annotacja rozwiazała problem.
+
