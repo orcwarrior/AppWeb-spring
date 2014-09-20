@@ -3,7 +3,6 @@ package org.springframework.samples.webflow.rest.request;
 import com.google.gson.Gson;
 import org.apache.http.HttpStatus;
 import org.springframework.samples.webflow.rest.response.RESTResponse;
-import org.springframework.samples.webflow.user.User;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,14 +13,14 @@ import java.io.IOException;
  */
 @Service
 public class RESTRequestService {
-    private RESTRequestError checkRESTRequest(HttpServletRequest request) {
+    static private RESTRequestError checkRESTRequest(HttpServletRequest request) {
         if (request.getMethod() != "POST") {
             return new RESTRequestError(HttpStatus.SC_BAD_REQUEST, "Only POST requests are supported!");
         }
         return null;
     }
 
-    public HttpServletResponse processRequest(HttpServletRequest request, String body, HttpServletResponse response) throws IOException {
+    static public HttpServletResponse processRequest(HttpServletRequest request, String body, HttpServletResponse response) throws IOException {
         Gson gson = new Gson();
         RESTRequestError error = checkRESTRequest(request);
         if (error != null) {
@@ -31,7 +30,7 @@ public class RESTRequestService {
         String jsonContent = gson.toJson(restRequestGeneric.content);
         RESTRequest requestConcrete = RESTRequestFactory.buildConcreteRequest(restRequestGeneric);
         RESTResponse restResponse = requestConcrete.doAction();
-        User u = gson.fromJson(jsonContent, User.class);
+        response.getWriter().write(gson.toJson(restResponse));
         return response;
     }
 }

@@ -3,10 +3,14 @@ package org.springframework.samples.webflow.user;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.webflow.news.Article;
+import org.springframework.samples.webflow.user.session.UserSession;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.Stream;
 
 /**
  * Created by orcwarrior on 2014-07-09.
@@ -27,12 +31,17 @@ public class UserDaoDB implements UserDao{
     @Transactional
     public List<User> getUsers()
     {
-        return sessionFactory.getCurrentSession().createQuery("FROM users").list();
+        return sessionFactory.getCurrentSession().createQuery("from User").list();
     }
 
     @Override
     public User getUserByName(String username) {
-        return (User) sessionFactory.getCurrentSession().load(User.class, username);
+
+        List<User> users = sessionFactory.getCurrentSession().createQuery("from User u where u.username = :username").setParameter("username", username).list();
+        if (users.isEmpty())
+            return null;
+        else
+            return users.get(0);
     }
 
     @Override

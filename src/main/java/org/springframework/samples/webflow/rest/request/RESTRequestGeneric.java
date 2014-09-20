@@ -1,5 +1,6 @@
 package org.springframework.samples.webflow.rest.request;
 
+import com.google.gson.internal.LinkedTreeMap;
 import org.springframework.samples.webflow.rest.request.headers.RESTRequestHeaders;
 
 /**
@@ -11,7 +12,7 @@ public abstract class RESTRequestGeneric implements RESTRequest {
 
     protected RESTRequestGeneric(RESTRequestHeaders headers, Object content) {
         this.headers = headers;
-        this.content = content;
+        this.setContent(content);
     }
 
     public RESTRequestHeaders getHeaders() {
@@ -20,5 +21,9 @@ public abstract class RESTRequestGeneric implements RESTRequest {
 
     public Object getContent() {
         return content;
+    }
+    public LinkedTreeMap getContentTree() { return (LinkedTreeMap) content; }
+    public void setContent(Object content) {
+        this.content = content;
     }
 }

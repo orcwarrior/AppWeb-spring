@@ -1,7 +1,9 @@
 package org.springframework.samples.webflow.rest.request;
 
+import org.primefaces.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.webflow.rest.request.headers.RESTRequestHeaders;
+import org.springframework.samples.webflow.user.User;
 import org.springframework.samples.webflow.user.session.UserSession;
 import org.springframework.samples.webflow.user.session.UserSessionService;
 

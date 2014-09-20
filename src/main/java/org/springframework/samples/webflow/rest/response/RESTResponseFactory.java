@@ -20,7 +20,7 @@ public class RESTResponseFactory {
     public static RESTResponse createRESTResponse(String errorMsg) {
         RESTResponse response = new RESTResponse();
         response.setHeaders(new RESTResponseHeaders(
-                new RESTResponseStatus(RESTResponseStatusType.fail),
+                new RESTResponseStatus(RESTResponseStatusType.fail, errorMsg),
                 null));
         return response;
     }

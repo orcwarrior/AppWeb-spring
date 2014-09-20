@@ -1,7 +1,6 @@
 package org.springframework.samples.webflow.user;
 
 import com.sun.istack.NotNull;
-import org.hibernate.annotations.ForeignKey;
 import org.springframework.samples.webflow.user.role.Role;
 
 import javax.persistence.*;
@@ -18,6 +17,7 @@ public class User {
     @GeneratedValue
     @Column(name = "ID")
     private int id;
+
     @NotNull
     @Column(name = "USERNAME", unique = true)
     private String username;
@@ -25,11 +25,12 @@ public class User {
     @NotNull
     @Column(name = "PASSWORD")
     private String password;
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     @JoinTable(name = "user_roles",
             joinColumns = {@JoinColumn(name = "user_id", nullable = false, updatable = false)},
             inverseJoinColumns = {@JoinColumn(name = "role_id", nullable = false, updatable = false)})
     private Set<Role> roles;
+
     @Basic
     @NotNull
     @Column(name = "ENABLED")
