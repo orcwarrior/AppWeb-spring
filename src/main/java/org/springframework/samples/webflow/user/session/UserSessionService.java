@@ -16,6 +16,9 @@ public class UserSessionService {
     public UserSession getUserSessionByUUID(String uuid) {
         return userSessionDao.getSessionByUUID(uuid);
     }
+    public UserSession getUserSessionByUser(User user) {
+        return userSessionDao.getSessionByUser(user);
+    }
     public UserSession generateUserSession(User user) {
         UserSession oldSession = userSessionDao.getSessionByUser(user);
         if (oldSession != null)

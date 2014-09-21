@@ -1,6 +1,7 @@
 package org.springframework.samples.webflow.rest.request;
 
 import org.springframework.samples.webflow.rest.request.concrete.RESTRequestLogin;
+import org.springframework.samples.webflow.rest.request.concrete.RESTRequestRegister;
 import org.springframework.samples.webflow.rest.request.headers.RESTOperation;
 
 /**
@@ -16,7 +17,7 @@ public class RESTRequestFactory {
             case logout:
                 break;
             case register:
-                break;
+                return new RESTRequestRegister(requestGeneric.getHeaders(), requestGeneric.getContent());
             case getRoles:
                 break;
             case getArticles:
