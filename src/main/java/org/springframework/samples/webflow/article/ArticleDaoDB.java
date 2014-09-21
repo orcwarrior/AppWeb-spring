@@ -1,4 +1,4 @@
-package org.springframework.samples.webflow.news;
+package org.springframework.samples.webflow.article;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

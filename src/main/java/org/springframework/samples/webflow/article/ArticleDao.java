@@ -1,4 +1,4 @@
-package org.springframework.samples.webflow.news;
+package org.springframework.samples.webflow.article;
 
 
 import java.util.List;

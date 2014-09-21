@@ -1,10 +1,11 @@
-package org.springframework.samples.webflow.news;
+package org.springframework.samples.webflow.article;
 
 import org.hibernate.annotations.ForeignKey;
 import org.springframework.samples.webflow.user.User;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * Created by Dariusz on 2014-05-12.
@@ -24,6 +25,8 @@ public class Article {
     @Column(name = "CONTENT")
     private String content;
 
+    @Column(name = "IMAGE_URL")
+    private String imageUrl;
 
     @JoinColumn(name = "AUTHOR", referencedColumnName = "USERNAME")
     @ManyToOne
@@ -31,7 +34,7 @@ public class Article {
     private User author;
 
     @Column(name = "CREATED")
-    private Timestamp created;
+    private Date created;
 
     @JoinColumn(name = "MODIFIED_BY", referencedColumnName = "USERNAME")
     @ManyToOne
@@ -40,23 +43,29 @@ public class Article {
 
 
     @Column(name = "MODIFIED_DATE")
-    private Timestamp modifiedDate;
+    private Date modifiedDate;
 
 
-    public Article() {
+    public Article(int id, String title, String content) {
+        this(title, content);
+        this.id = id;
     }
 
     public Article(String title, String content) {
+        this();
         this.title = title;
         this.content = content;
     }
 
-    public Article(int id, String title, String content) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
+    public Article() {
+        this.created = new java.util.Date();
     }
 
+    public Article(String title, String content, String imageUrl, User author) {
+        this(title, content);
+        this.author = author;
+        this.imageUrl = imageUrl;
+    }
 
     public int getId() {
         return id;
@@ -76,6 +85,23 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public void modifyArticle(String title, String content, String imageUrl, User modificator) {
+        if (title != null)
+            setTitle(title);
+        if (content != null) ;
+        setContent(content);
+        if (imageUrl != null)
+            setImageUrl(imageUrl);
+        if (title != null || content != null || imageUrl != null) {
+            this.modifiedBy = modificator;
+            this.modifiedDate = new java.util.Date();
+        }
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     @Override

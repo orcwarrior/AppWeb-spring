@@ -1,18 +1,13 @@
-package org.springframework.samples.webflow.news;
+package org.springframework.samples.webflow.article;
 
-import org.apache.http.HttpRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.webflow.svg.SvgService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.List;
 import java.util.logging.Logger;
