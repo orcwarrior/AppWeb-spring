@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 import org.springframework.samples.webflow.user.role.Role;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -42,6 +43,14 @@ public class User {
     public User() {
     }
 
+    public User(String username, String password, String email) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+
+        this.enabled = true;
+    }
+
     public int getId() {
         return id;
     }
@@ -59,5 +68,10 @@ public class User {
 
     public String getUsername() {
         return username;
+    }
+    public void addUserRole(Role r) {
+        if(this.roles == null)
+            this.roles = new HashSet<Role>();
+        this.roles.add(r);
     }
 }

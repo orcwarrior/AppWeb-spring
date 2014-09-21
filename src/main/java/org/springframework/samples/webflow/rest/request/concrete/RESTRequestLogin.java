@@ -1,15 +1,12 @@
 package org.springframework.samples.webflow.rest.request.concrete;
 
 import com.google.gson.internal.LinkedTreeMap;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.webflow.rest.request.RESTRequestWithoutSession;
 import org.springframework.samples.webflow.rest.request.headers.RESTRequestHeaders;
 import org.springframework.samples.webflow.rest.response.RESTResponse;
 import org.springframework.samples.webflow.rest.response.RESTResponseFactory;
 import org.springframework.samples.webflow.user.User;
-import org.springframework.samples.webflow.user.UserDao;
 import org.springframework.samples.webflow.user.session.UserSession;
-import org.springframework.samples.webflow.user.session.UserSessionService;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -18,21 +15,6 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class RESTRequestLogin extends RESTRequestWithoutSession {
 
-    /* DK: I Cannot find other way to set static autowired prop */
-    private static UserDao staticUserDao;
-    @Autowired
-    public void setStaticUserDao(UserDao dao) {
-        this.staticUserDao = dao;
-    }
-
-    private static UserSessionService staticUserSessionService;
-    @Autowired
-    public void setUserSessionService(UserSessionService userSessionService) {
-        this.staticUserSessionService = userSessionService;
-    }
-
-    @Autowired
-    UserSessionService userSessionService;
 
     public RESTRequestLogin(){
         super(new RESTRequestHeaders(), new Object());
@@ -50,14 +32,19 @@ public class RESTRequestLogin extends RESTRequestWithoutSession {
         try {
             requestUser = new RequestUser(content.get("username").toString(), content.get("password").toString());
         } catch (Exception e) {
-            return RESTResponseFactory.createRESTResponse("Passed object don't match with User class, exception: " + e.getMessage());
+            if (e.getMessage() == null)
+            return RESTResponseFactory.createRESTResponse("Passed object don't match with User class, exception: " + e.toString());
+            else
+                return RESTResponseFactory.createRESTResponse("Passed object don't match with User class, exception: "
+                        + e.toString() + ", exception message: " + e.getMessage());
+
         }
-        User userDB = staticUserDao.getUserByName(requestUser.getUsername());
+        User userDB = staticUserService.getUserByUsername(requestUser.getUsername());
         if (userDB != null && userDB.getPassword().equals(requestUser.getPassword()) ) {
             UserSession session = staticUserSessionService.generateUserSession(userDB);
             return RESTResponseFactory.createRESTResponse(session, session);
         }
-        return RESTResponseFactory.createRESTResponse("No user found with name: " + requestUser.getUsername());
+        return RESTResponseFactory.createRESTResponse("Invalid username or password: " + requestUser.getUsername());
 
     }
     class RequestUser {

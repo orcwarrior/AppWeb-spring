@@ -1,5 +1,9 @@
 package org.springframework.samples.webflow.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.webflow.user.role.Role;
+import org.springframework.samples.webflow.user.role.RoleService;
+import org.springframework.samples.webflow.user.session.UserSessionService;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,6 +17,12 @@ import java.io.Serializable;
 @Service
 public class UserService implements Serializable {
 
+    @Autowired
+    UserDao userDao;
+    @Autowired
+    RoleService roleService;
+    @Autowired
+    UserSessionService userSessionService;
 
     public Boolean isLoggedIn() {
         return isAuthenticated() && !isAnymouslyAuthenticated();
@@ -40,5 +50,19 @@ public class UserService implements Serializable {
     public String getUsername() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         return auth.getName();
+    }
+    public User getUserByUsername(String username) {
+        return userDao.getUserByName(username);
+    }
+    public boolean userWithNameExist(String username) {
+        return getUserByUsername(username) != null;
+    }
+    public User createNewUser(String username, String passwordHash, String email) {
+        User newUser = new User(username, passwordHash, email);
+        Role baseUserRole = roleService.getDefaultUsersRole();
+        newUser.addUserRole(baseUserRole);
+        userDao.saveUser(newUser);
+        userSessionService.generateUserSession(newUser);
+        return newUser;
     }
 }
